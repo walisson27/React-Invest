@@ -3,6 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import "./login.css"
 import "../../../reset.css";
+import { useRouter } from "next/router";
+
 interface UserLogin {
   email: string;
   senha: string;
@@ -12,13 +14,24 @@ const Logi = () => {
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
   const [usuarios, setUsuarios] = useState<UserLogin[]>([]);
+  const router = useRouter()
 
   const login = () => {
     setUsuarios([...usuarios, { email, senha }]);
     setEmail("");
     setSenha("");
+    autentificacao()
     console.log(usuarios);
   };
+
+  const autentificacao = () =>{
+    if(email == "walisson27" && senha == "souza"){
+      router.push('/home')
+      return
+    } else{
+      alert("login")
+    }
+  }
 
   return (
     <div className="login-center">
