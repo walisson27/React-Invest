@@ -1,0 +1,49 @@
+"use client"; // Adicione esta linha no topo do arquivo
+import { useState } from "react";
+import Link from "next/link";
+import "./login.css"
+import "../../../reset.css";
+interface UserLogin {
+  email: string;
+  senha: string;
+}
+
+const Logi = () => {
+  const [email, setEmail] = useState<string>("");
+  const [senha, setSenha] = useState<string>("");
+  const [usuarios, setUsuarios] = useState<UserLogin[]>([]);
+
+  const login = () => {
+    setUsuarios([...usuarios, { email, senha }]);
+    setEmail("");
+    setSenha("");
+    console.log(usuarios);
+  };
+
+  return (
+    <div className="login-center">
+      <section className="login">
+        <input
+          className="email"
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          className="senha"
+          type="password"
+          placeholder="Senha"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+        />
+        <button onClick={login}>Login</button>
+        <Link href="../cadastro/Cadastro">
+          Não tem conta? Cadastra-se
+        </Link>
+      </section>
+    </div>
+  );
+};
+
+export default Logi;
