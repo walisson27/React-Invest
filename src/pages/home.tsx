@@ -5,8 +5,9 @@ const Home = () => {
     return(
         <>
         <nav>
-            <h1>{}</h1>
+            <a href="">Home</a>
         </nav>
+        
         </>
     )
 }
