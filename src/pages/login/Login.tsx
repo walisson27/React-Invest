@@ -10,7 +10,7 @@ interface UserLogin {
   senha: string;
 }
 
-const Logi = () => {
+const Logi = (props:any) => {
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
   const [usuarios, setUsuarios] = useState<UserLogin[]>([]);
@@ -25,13 +25,12 @@ const Logi = () => {
   };
 
   const autentificacao = () =>{
-    if(email == "walisson27" && senha == "souza"){
-      router.push('/home')
-      return
-    } else{
-      alert("login")
+    if (email === "walisson27" && senha === "souza") {
+      router.push('/home',); // Passando o email como estado
+    } else {
+      alert("Login inválido");
     }
-  }
+  };
 
   return (
     <div className="login-center">

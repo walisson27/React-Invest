@@ -1,0 +1,14 @@
+nav{
+    height: 47px;
+    width: 100%;
+    background-color: black;
+
+}
+
+nav h1{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: white;
+}

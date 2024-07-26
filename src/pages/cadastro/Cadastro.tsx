@@ -27,6 +27,10 @@ const Cadastro = () => {
       console.log(usuario)
   }
 
+  const login = () => {
+    router.push('/login/Login')
+  }
+
     return(
         <div className="login-center">
         <section className="login">
@@ -46,7 +50,7 @@ const Cadastro = () => {
             onChange={(e) => setSenha(e.target.value)}
           />
           <button onClick={cadastro}>Cadastro</button>
-          <button>Login</button>
+          <button onClick={login}>Login</button>
         </section>
       </div>
     )

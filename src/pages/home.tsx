@@ -1,12 +1,12 @@
-
-
-
+import "./home.css"
 
 const Home = () => {
 
     return(
         <>
-            <h1>Login</h1>
+        <nav>
+            <h1>{}</h1>
+        </nav>
         </>
     )
 }
