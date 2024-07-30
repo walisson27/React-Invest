@@ -8,7 +8,7 @@ interface TableCadastro {
     img: string;
   }
   
-  const Table = (props: TableCadastro) => {
+  const Table = (/*props: TableCadastro*/) => {
     const [nome, setNome] = useState<string>("");
     const [carro, setCarro] = useState<string>("");
     const [data, setData] = useState<string>("");
