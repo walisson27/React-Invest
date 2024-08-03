@@ -21,7 +21,6 @@ const Logi = (props:any) => {
     setEmail("");
     setSenha("");
     autentificacao()
-    console.log(usuarios);
   };
 
   const autentificacao = () =>{
