@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Buscar from "@/app/components/busca"; "../../app/components/Busca.tsx"
 import "./table.css"
 
 interface TableCadastro {
@@ -57,6 +58,7 @@ interface TableCadastro {
             <input type="text" placeholder="Img" value={img} onChange={(e) => setImg(e.target.value)} />
             <button onClick={tableDados}>{editando !== null ? "Atualizar" : "Gravar"}</button>
         </section>
+        <Buscar/>
         <section className="section-lista">
         <ul>
         <tr className="names-tr">
