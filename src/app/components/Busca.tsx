@@ -2,10 +2,10 @@ import "./buscar.css"
 
 
 
-const Buscar = () => {
+const Buscar = ({buscar,setBuscar}) => {
     return(
         <>
-        <input className="buscar" type="text" placeholder="Buscar" />
+        <input className="buscar" type="text" placeholder="Buscar" value={buscar} onChange={(e) =>setBuscar(e.target.value)}/>
         </>
     )
 }

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Buscar from "@/app/components/busca"; "../../app/components/Busca.tsx"
+import Buscar from "../../app/components/Busca"
 import "./table.css"
 
 interface TableCadastro {
@@ -7,6 +7,7 @@ interface TableCadastro {
     carro: string;
     data: string;
     img: string;
+    text: string;
   }
   
   const Table = (/*props: TableCadastro*/) => {
@@ -17,6 +18,8 @@ interface TableCadastro {
     const [dadosCadastro, setDadosCadastro] = useState<TableCadastro[]>([]);
     const [editando, setEditando] = useState<number | null>(null)
   
+    const [buscar, setBuscar] = useState<string>("")
+
     const tableDados = () => {
       if( editando !== null) {
         const updateDados = dadosCadastro.map((item, index) => (
@@ -58,7 +61,7 @@ interface TableCadastro {
             <input type="text" placeholder="Img" value={img} onChange={(e) => setImg(e.target.value)} />
             <button onClick={tableDados}>{editando !== null ? "Atualizar" : "Gravar"}</button>
         </section>
-        <Buscar/>
+        <Buscar buscar={buscar} setBuscar={setBuscar}/>
         <section className="section-lista">
         <ul>
         <tr className="names-tr">
@@ -67,14 +70,22 @@ interface TableCadastro {
               <td><strong>Data:</strong> </td>
               <td><strong>Imagem:</strong> </td>
         </tr>
-          {dadosCadastro.map((dado, index) => (
+        {dadosCadastro
+          .filter((dado) => 
+            dado.nome.toLowerCase().includes(buscar.toLowerCase())
+          )
+          .map((dado, index) => (    
             <tr key={index}>
               <td>{dado.nome}</td>
-              <td> {dado.carro}</td>
+              <td>{dado.carro}</td>
               <td>{dado.data}</td>
-              <td>{dado.img}</td>
-              <button onClick={()=>apagar(index)}>Apagar</button> 
-              <button onClick={()=>editar(index)}>Editar</button>
+              <td>
+                <img src={dado.img} alt={dado.nome} width="100" />
+              </td>
+              <td>
+                <button onClick={() => apagar(index)}>Apagar</button> 
+                <button onClick={() => editar(index)}>Editar</button>
+              </td>
             </tr>
           ))}
         </ul>
@@ -82,7 +93,5 @@ interface TableCadastro {
       </>
     )
 }
-
-
 
 export default Table
