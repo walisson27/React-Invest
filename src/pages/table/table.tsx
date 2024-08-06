@@ -60,8 +60,8 @@ interface TableCadastro {
             <input type="text" placeholder="Data" value={data} onChange={(e) => setData(e.target.value)} />
             <input type="text" placeholder="Img" value={img} onChange={(e) => setImg(e.target.value)} />
             <button onClick={tableDados}>{editando !== null ? "Atualizar" : "Gravar"}</button>
+            <Buscar buscar={buscar} setBuscar={setBuscar}/>
         </section>
-        <Buscar buscar={buscar} setBuscar={setBuscar}/>
         <section className="section-lista">
         <ul>
         <tr className="names-tr">

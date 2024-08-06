@@ -13,6 +13,7 @@
 .section-table button{
     margin-top: 10px;
     width: 87px;
+    margin-bottom: 22px;
 }
 
 .section-lista {
@@ -21,7 +22,6 @@
     align-items: center;
     padding-top: 22px;
 }
-
 .names-tr{
     background-color: black;
     color: white;
