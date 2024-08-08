@@ -29,6 +29,7 @@ const sair = () =>{
         <nav className="nav-home">
             <a href="">Home</a>
             <a href="" onClick={(e) => adicionando(e)}>Adicionar</a>
+            <a href="">Usuario</a>
             <a href="" onClick={sair}>Sair</a>
         </nav>
         <section>
