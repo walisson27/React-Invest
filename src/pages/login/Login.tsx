@@ -11,6 +11,8 @@ interface UserLogin {
 }
 
 const Logi = (props:any) => {
+  const emailUser = "walisson27"
+  const senhaUser = "souza"
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
   const [usuarios, setUsuarios] = useState<UserLogin[]>([]);
@@ -24,7 +26,7 @@ const Logi = (props:any) => {
   };
 
   const autentificacao = () =>{
-    if (email === "walisson27" && senha === "souza") {
+    if (email === emailUser && senha === senhaUser) {
       router.push('/home',); // Passando o email como estado
     } else {
       alert("Login inválido");
