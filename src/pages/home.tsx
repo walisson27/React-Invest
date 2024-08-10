@@ -1,6 +1,7 @@
 import "./home.css"
 import "../../reset.css"
 import Table from "./table/table"
+import Users from "./FormularioUser/users"
 import { useRouter } from "next/router"
 import { useState } from "react"
 
@@ -28,12 +29,11 @@ const sair = () =>{
         <>
         <nav className="nav-home">
             <a href="">Home</a>
-            <a href="" onClick={(e) => adicionando(e)}>Adicionar</a>
-            <a href="">Usuario</a>
+            <a href="" onClick={(e) => adicionando(e)}>Adicionar Users</a>
             <a href="" onClick={sair}>Sair</a>
         </nav>
         <section>
-            {showDados && <Table/>}
+            {showDados && <Users/>}
         </section>
         
         </>
