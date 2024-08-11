@@ -1,4 +1,4 @@
-import "./home.css"
+import "./filmes.css"
 
 
 const filmes = () => {
@@ -7,6 +7,9 @@ const filmes = () => {
     
     return(
         <>
+        <nav>
+            
+        </nav>
             <h1>Filmes</h1>
         </>
     )
