@@ -22,14 +22,18 @@ const adicionando = (e) => {
 } 
 
 const sair = () =>{
-      router.push('/login/Login',)
+      router.push('/login/Login')
   };
 
+const filmes = () => {
+    router.push('/filmes/filmes')
+}  
     return(
         <>
         <nav className="nav-home">
             <a href="">Home</a>
-            <a href="" onClick={(e) => adicionando(e)}>Adicionar Users</a>
+            <a href="" onClick={adicionando}>Adicionar Users</a>
+            <a href="" onClick={filmes}>Filmes</a>
             <a href="" onClick={sair}>Sair</a>
         </nav>
         <section>
