@@ -2,5 +2,15 @@ nav{
     height: 47px;
     width: 100%;
     background-color: black;
+    color: white;
 
+}
+
+.movies-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-card{
+    display: flex;
 }

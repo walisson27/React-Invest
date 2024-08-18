@@ -21,11 +21,13 @@ const adicionando = (e) => {
 
 } 
 
-const sair = () =>{
+const sair = (e) =>{
+    e.preventDefault()
       router.push('/login/Login')
   };
 
-const filmes = () => {
+const filmes = (e) => {
+    e.preventDefault()
     router.push('/filmes/filmes')
 }  
     return(
