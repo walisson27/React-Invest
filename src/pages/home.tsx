@@ -26,10 +26,6 @@ const sair = (e) =>{
       router.push('/login/Login')
   };
 
-const filmes = (e) => {
-    e.preventDefault()
-    router.push('/filmes/filmes')
-}  
     return(
         <>
         <nav className="nav-home">
