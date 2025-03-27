@@ -35,7 +35,6 @@ const filmes = (e) => {
         <nav className="nav-home">
             <a href="">Home</a>
             <a href="" onClick={adicionando}>Adicionar Users</a>
-            <a href="" onClick={filmes}>Filmes</a>
             <a href="" onClick={sair}>Sair</a>
         </nav>
         <section>
