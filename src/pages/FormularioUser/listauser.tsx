@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 interface FormularioUsers {
   name: string;
   email: string;
+  telefone: number;
 }
 
 const ListaUsuarios = () => {
@@ -22,7 +23,7 @@ const ListaUsuarios = () => {
   const salvarEdicao = () => {
     if (editIndex !== null) {
       const atualizados = [...usuarios];
-      atualizados[editIndex] = { name: nomeEditado, email: emailEditado };
+      atualizados[editIndex] = { name: nomeEditado, email: emailEditado, telefone: usuarios[editIndex].telefone };
       setUsuarios(atualizados);
       localStorage.setItem("usuarios", JSON.stringify(atualizados));
       setEditIndex(null);
@@ -58,6 +59,7 @@ const ListaUsuarios = () => {
           <tr>
             <th>Nome</th>
             <th>Email</th>
+            <th>Telefone</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -84,6 +86,8 @@ const ListaUsuarios = () => {
                   user.email
                 )}
               </td>
+              <td>{user.telefone}</td>
+      
               <td>
                 {editIndex === index ? (
                   <button className="btn btn-success btn-sm" onClick={salvarEdicao}>

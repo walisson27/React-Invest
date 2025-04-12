@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 interface FormularioUsers {
   name: string;
   email: string;
+  telefone: number;
  /* fullName: string;
   telefone: number;
   rg: number;
@@ -17,6 +18,7 @@ interface FormularioUsers {
 const Users = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [telefone, setTelefone] = useState<number | undefined>(undefined);
   /*const [fullName, setFullName] = useState<string>("");
   const [endereco, setEndereco] = useState<string>("");
   const [carro, setCarro] = useState<string>("");
@@ -44,12 +46,12 @@ useEffect(() => {
  const tableDados = () => {
     if( editando !== null) {
       const updateDados = dadosCadastro.map((item, index) => (
-        index === editando ? {name,email}: item
+        index === editando ? {name,email,telefone}: item
       ))
       setDadosCadastro(updateDados)
       setEditando(null)
     } else{
-    setDadosCadastro([...dadosCadastro, {name,email}]);
+    setDadosCadastro([...dadosCadastro, {name,email,telefone}]);
   };
     setName("");
 
@@ -79,6 +81,8 @@ useEffect(() => {
             <input type="name" className="form-control" id="inputEmail4" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
             <label htmlFor="inputEmail4">Email</label>
             <input type="email" className="form-control" id="inputEmail4" placeholder="Name" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <label htmlFor="inputEmail4">Telefone</label>
+            <input type="number" className="form-control" id="inputEmail4" placeholder="Name" value={telefone} onChange={(e) => setTelefone(Number(e.target.value))}/>
           </div>
         </div>
         <button className="btn btn-primary" onClick={tableDados} >{editando !== null ? "Atualizar" : "Gravar"}</button>
