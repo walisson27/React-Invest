@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useEffect, } from "react";
 import "./Users.css"
 import "bootstrap/dist/css/bootstrap.min.css";
-import ListaUsuarios from "./listauser";
 
 interface FormularioUsers {
   name: string;

@@ -10,6 +10,7 @@ const ListaUsuarios = () => {
   const [editIndex, setEditIndex] = useState<number | null>(null);
   const [nomeEditado, setNomeEditado] = useState("");
   const [emailEditado, setEmailEditado] = useState("");
+  const [buscar, setBuscar] = useState<string>("");
 
   useEffect(() => {
     const dados = localStorage.getItem("usuarios");
@@ -43,8 +44,14 @@ const ListaUsuarios = () => {
     localStorage.setItem("usuarios", JSON.stringify(atualizados));
   };
 
+  const usersFiltrados = usuarios.filter((user) =>
+    user.name.toLowerCase().includes(buscar.toLowerCase()) || 
+    user.email.toLowerCase().includes(buscar.toLowerCase())
+  );
+
   return (
     <div className="mt-4">
+      <input type="text" value={buscar} onChange={(e)=>setBuscar(e.target.value)}/>
       <h2>Lista de Usuários</h2>
       <table className="table">
         <thead>
@@ -55,7 +62,7 @@ const ListaUsuarios = () => {
           </tr>
         </thead>
         <tbody>
-          {usuarios.map((user, index) => (
+          {usersFiltrados.map((user, index) => (
             <tr key={index}>
               <td>
                 {editIndex === index ? (
