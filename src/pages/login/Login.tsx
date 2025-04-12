@@ -56,6 +56,7 @@ const Logi = (props:any) => {
           Não tem conta? Cadastra-se
         </Link>
       </section>
+      
     </div>
   );
 };

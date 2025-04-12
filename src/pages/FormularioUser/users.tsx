@@ -1,54 +1,65 @@
 import { useState } from "react";
+import { useEffect, } from "react";
 import "./Users.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+import ListaUsuarios from "./listauser";
 
 interface FormularioUsers {
   name: string;
-  fullName: string;
+  email: string;
+ /* fullName: string;
   telefone: number;
   rg: number;
   endereco: string;
   carro: string;
-  placa: string;
+  placa: string;*/
 }
 
 const Users = () => {
   const [name, setName] = useState<string>("");
-  const [fullName, setFullName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  /*const [fullName, setFullName] = useState<string>("");
   const [endereco, setEndereco] = useState<string>("");
   const [carro, setCarro] = useState<string>("");
   const [placa, setPlaca] = useState<string>("");
   const [telefone, setTelefone] = useState<number | undefined>(undefined);
-  const [rg, setRg] = useState<number | undefined>(undefined);
+  const [rg, setRg] = useState<number | undefined>(undefined);*/
 
  const [dadosCadastro, setDadosCadastro] = useState<FormularioUsers[]>([]);
  const [editando, setEditando] = useState<number | null>(null)
+
+ // Carregar dados do LocalStorage ao iniciar
+ useEffect(() => {
+  const dadosSalvos = localStorage.getItem("usuarios");
+  if (dadosSalvos) {
+    setDadosCadastro(JSON.parse(dadosSalvos));
+  }
+}, []);
+
+// Salvar no LocalStorage sempre que os dados forem alterados
+useEffect(() => {
+  localStorage.setItem("usuarios", JSON.stringify(dadosCadastro));
+}, [dadosCadastro]);
 
 
  const tableDados = () => {
     if( editando !== null) {
       const updateDados = dadosCadastro.map((item, index) => (
-        index === editando ? {name,carro,fullName,endereco,placa,telefone,rg} : item
+        index === editando ? {name,email}: item
       ))
       setDadosCadastro(updateDados)
       setEditando(null)
     } else{
-    setDadosCadastro([...dadosCadastro, {name,carro,fullName,endereco,placa,telefone,rg}]);
+    setDadosCadastro([...dadosCadastro, {name,email}]);
   };
     setName("");
-    setCarro("");
-    setFullName("");
-    setEndereco("");
-    setCarro("");
-    setPlaca("");
+
     console.log(dadosCadastro)
 }
   const editar = (index:number) => {
 
     const item = dadosCadastro[index]
     setName(item.name)
-    setCarro(item.carro)
-    setFullName(item.fullName)
-    setPlaca(item.placa)
     setEditando(index)
 
   }
@@ -61,51 +72,18 @@ const Users = () => {
   }
   return (
     <>
-      <section>
-        <input
-          type="text"
-          placeholder="Nome"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Sobrenome"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="RG"
-          value={rg !== undefined ? rg : ""}
-          onChange={(e) => setRg(Number(e.target.value))}
-        />
-        <input
-          type="text"
-          placeholder="Telefone"
-          value={telefone !== undefined ? telefone : ""}
-          onChange={(e) => setTelefone(Number(e.target.value))}
-        />
-        <input
-          type="text"
-          placeholder="Endereço"
-          value={endereco}
-          onChange={(e) => setEndereco(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Carro"
-          value={carro}
-          onChange={(e) => setCarro(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Placa"
-          value={placa}
-          onChange={(e) => setPlaca(e.target.value)}
-        />
-        <button onClick={tableDados}>{editando !== null ? "Atualizar" : "Gravar"}</button>
-      </section>
+
+      <div>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label htmlFor="inputEmail4">Name</label>
+            <input type="name" className="form-control" id="inputEmail4" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
+            <label htmlFor="inputEmail4">Email</label>
+            <input type="email" className="form-control" id="inputEmail4" placeholder="Name" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          </div>
+        </div>
+        <button className="btn btn-primary" onClick={tableDados} >{editando !== null ? "Atualizar" : "Gravar"}</button>
+      </div>
     </>
   );
 };
