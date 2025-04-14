@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useEffect, } from "react";
 import "./Users.css"
 import "bootstrap/dist/css/bootstrap.min.css";
+import Endereço from "./Endereço.tsx/Endereço";
 
 interface FormularioUsers {
   name: string;
   email: string;
   telefone: number;
+
  /* fullName: string;
   telefone: number;
   rg: number;
@@ -73,9 +75,8 @@ useEffect(() => {
   }
   return (
     <>
-
       <div>
-        <div className="form-row">
+        <div className="form-row  ">
           <div className="form-group col-md-6">
             <label htmlFor="inputEmail4">Name</label>
             <input type="name" className="form-control" id="inputEmail4" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
@@ -83,6 +84,7 @@ useEffect(() => {
             <input type="email" className="form-control" id="inputEmail4" placeholder="Name" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <label htmlFor="inputEmail4">Telefone</label>
             <input type="number" className="form-control" id="inputEmail4" placeholder="Name" value={telefone} onChange={(e) => setTelefone(Number(e.target.value))}/>
+            <Endereço/>
           </div>
         </div>
         <button className="btn btn-primary" onClick={tableDados} >{editando !== null ? "Atualizar" : "Gravar"}</button>
