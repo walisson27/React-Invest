@@ -1,10 +1,10 @@
 import "./home.css"
 import "../../reset.css"
-import Table from "./table/table"
 import Users from "./FormularioUser/users"
 import ListaUsuarios from "./FormularioUser/listauser"
 import { useRouter } from "next/router"
 import { useState } from "react"
+
 
 
 const Home = () => {
@@ -44,7 +44,7 @@ const sair = (e) =>{
         <nav className="nav-home">
             <a href="">Home</a>
             <a href="" onClick={adicionando}>Adicionar Users</a>
-            <a onClick={lista}>lista de users</a>
+            <a href="" onClick={lista}>lista de users</a>
             <a href="" onClick={sair}>Sair</a>
         </nav>
         <section>
