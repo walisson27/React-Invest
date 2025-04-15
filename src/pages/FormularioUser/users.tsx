@@ -4,11 +4,23 @@ import "./Users.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import Endereço from "./Endereço.tsx/Endereço";
 
+
+interface EnderecoProps {
+  rua: string;
+  numero: number;
+  bairro: string;
+  cidade: string;
+  estado: string;
+  cep: string;
+  complemento: string;
+  pontoReferencia: string;
+}
+
 interface FormularioUsers {
   name: string;
   email: string;
   telefone: number;
-
+  endereco: EnderecoProps;
  /* fullName: string;
   telefone: number;
   rg: number;
@@ -30,6 +42,17 @@ const Users = () => {
 
  const [dadosCadastro, setDadosCadastro] = useState<FormularioUsers[]>([]);
  const [editando, setEditando] = useState<number | null>(null)
+
+ const [endereco, setEndereco] = useState<EnderecoProps>({
+  rua: '',
+  numero: 0,
+  bairro: '',
+  cidade: '',
+  estado: '',
+  cep: '',
+  complemento: '',
+  pontoReferencia: '',
+});
 
  // Carregar dados do LocalStorage ao iniciar
  useEffect(() => {
@@ -84,7 +107,7 @@ useEffect(() => {
             <input type="email" className="form-control" id="inputEmail4" placeholder="Name" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <label htmlFor="inputEmail4">Telefone</label>
             <input type="number" className="form-control" id="inputEmail4" placeholder="Name" value={telefone} onChange={(e) => setTelefone(Number(e.target.value))}/>
-            <Endereço/>
+            <Endereço endereco={endereco} setEndereco={setEndereco}/>
           </div>
         </div>
         <button className="btn btn-primary" onClick={tableDados} >{editando !== null ? "Atualizar" : "Gravar"}</button>

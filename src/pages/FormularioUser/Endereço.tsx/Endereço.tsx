@@ -1,53 +1,76 @@
-import React, { useState } from "react";
+import React from 'react';
 
-
-interface enderecoProps {
-    rua: string;
-    numero: number; 
-    bairro: string;
-    cidade: string;
-    estado: string;
-    cep: string;
-    complemento: string;
-    pontoReferencia: string;
+interface EnderecoProps {
+  rua: string;
+  numero: number;
+  bairro: string;
+  cidade: string;
+  estado: string;
+  cep: string;
+  complemento: string;
+  pontoReferencia: string;
 }
 
-
-const endereco = () => {
-    const [rua, setRua] = useState<string>("");
-    const [numero, setNumero] = useState<number | undefined>(undefined);    
-    const [bairro, setBairro] = useState<string>("");
-    const [cidade, setCidade] = useState<string>("");
-    const [estado, setEstado] = useState<string>("");
-    const [cep, setCep] = useState<string>("");
-    const [complemento, setComplemento] = useState<string>("");
-    const [pontoReferencia, setPontoReferencia] = useState<string>("");
-    const [dadosEndereco, setDadosEndereco] = useState<enderecoProps[]>([]);
-    const [editando, setEditando] = useState<number | null>(null)
-    const [showEndereco, setShowEndereco] = useState(false)
-    const [showListaEndereco, setShowListaEndereco] = useState(false)   
-
-
-
-
-
-
-
-    return(
-        <>
-            <input type="text"  placeholder="Rua" value={rua} onChange={(e) => setRua(e.target.value)} />
-            <input type="number"  placeholder="Número" value={numero} onChange={(e) => setNumero(Number(e.target.value))} />
-            <input type="text"  placeholder="Bairro" value={bairro} onChange={(e) => setBairro(e.target.value)} />  
-            <input type="text"  placeholder="Cidade" value={cidade} onChange={(e) => setCidade(e.target.value)} />
-            <input type="text"  placeholder="Estado" value={estado} onChange={(e) => setEstado(e.target.value)} />
-            <input type="text"  placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
-            <input type="text"  placeholder="Complemento" value={complemento} onChange={(e) => setComplemento(e.target.value)} />
-            <input type="text"  placeholder="Ponto de Referência" value={pontoReferencia} onChange={(e) => setPontoReferencia(e.target.value)} />
-            
-         </>
-
-    )
-
+interface Props {
+  endereco: EnderecoProps;
+  setEndereco: React.Dispatch<React.SetStateAction<EnderecoProps>>;
 }
 
-export default endereco;
+const Endereco = ({ endereco, setEndereco }: Props) => {
+  return (
+    <div>
+      <h2>Endereço</h2>
+      <input
+        type="text"
+        placeholder="Rua"
+        value={endereco.rua}
+        onChange={(e) => setEndereco({ ...endereco, rua: e.target.value })}
+      />
+      <input
+        type="number"
+        placeholder="Número"
+        value={endereco.numero}
+        onChange={(e) => setEndereco({ ...endereco, numero: Number(e.target.value) })}
+      />
+      <input
+        type="text"
+        placeholder="Bairro"
+        value={endereco.bairro}
+        onChange={(e) => setEndereco({ ...endereco, bairro: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Cidade"
+        value={endereco.cidade}
+        onChange={(e) => setEndereco({ ...endereco, cidade: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Estado"
+        value={endereco.estado}
+        onChange={(e) => setEndereco({ ...endereco, estado: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="CEP"
+        value={endereco.cep}
+        onChange={(e) => setEndereco({ ...endereco, cep: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Complemento"
+        value={endereco.complemento}
+        onChange={(e) => setEndereco({ ...endereco, complemento: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Ponto de Referência"
+        value={endereco.pontoReferencia}
+        onChange={(e) => setEndereco({ ...endereco, pontoReferencia: e.target.value })}
+      />
+    </div>
+  );
+};
+
+export default Endereco;
+
