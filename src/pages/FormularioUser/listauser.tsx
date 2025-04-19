@@ -1,9 +1,21 @@
 import { useEffect, useState } from "react";
 
+interface EnderecoProps {
+  rua: string;
+  numero: number;
+  bairro: string;
+  cidade: string;
+  estado: string;
+  cep: string;
+  complemento: string;
+  pontoReferencia: string;
+}
+
 interface FormularioUsers {
   name: string;
   email: string;
   telefone: number;
+  endereco?: EnderecoProps; // Tornar opcional para evitar erro de undefined
 }
 
 const ListaUsuarios = () => {
@@ -16,6 +28,15 @@ const ListaUsuarios = () => {
   useEffect(() => {
     const dados = localStorage.getItem("usuarios");
     if (dados) {
+      const usuariosConvertidos = JSON.parse(dados);
+      console.log("Usuários carregados:", usuariosConvertidos);
+      setUsuarios(usuariosConvertidos);
+    }
+  }, []);
+
+  useEffect(() => {
+    const dados = localStorage.getItem("usuarios");
+    if (dados) {
       setUsuarios(JSON.parse(dados));
     }
   }, []);
@@ -23,7 +44,12 @@ const ListaUsuarios = () => {
   const salvarEdicao = () => {
     if (editIndex !== null) {
       const atualizados = [...usuarios];
-      atualizados[editIndex] = { name: nomeEditado, email: emailEditado, telefone: usuarios[editIndex].telefone };
+      atualizados[editIndex] = {
+        name: nomeEditado,
+        email: emailEditado,
+        telefone: usuarios[editIndex].telefone,
+        endereco: usuarios[editIndex].endereco,
+      };
       setUsuarios(atualizados);
       localStorage.setItem("usuarios", JSON.stringify(atualizados));
       setEditIndex(null);
@@ -46,13 +72,19 @@ const ListaUsuarios = () => {
   };
 
   const usersFiltrados = usuarios.filter((user) =>
-    user.name.toLowerCase().includes(buscar.toLowerCase()) || 
+    user.name.toLowerCase().includes(buscar.toLowerCase()) ||
     user.email.toLowerCase().includes(buscar.toLowerCase())
   );
 
   return (
     <div className="mt-4">
-      <input type="text" value={buscar} onChange={(e)=>setBuscar(e.target.value)}/>
+      <input
+        type="text"
+        value={buscar}
+        onChange={(e) => setBuscar(e.target.value)}
+        className="form-control mb-3"
+        placeholder="Buscar por nome ou email"
+      />
       <h2>Lista de Usuários</h2>
       <table className="table">
         <thead>
@@ -60,6 +92,7 @@ const ListaUsuarios = () => {
             <th>Nome</th>
             <th>Email</th>
             <th>Telefone</th>
+            <th>Endereço</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -71,6 +104,7 @@ const ListaUsuarios = () => {
                   <input
                     value={nomeEditado}
                     onChange={(e) => setNomeEditado(e.target.value)}
+                    className="form-control"
                   />
                 ) : (
                   user.name
@@ -81,24 +115,41 @@ const ListaUsuarios = () => {
                   <input
                     value={emailEditado}
                     onChange={(e) => setEmailEditado(e.target.value)}
+                    className="form-control"
                   />
                 ) : (
                   user.email
                 )}
               </td>
               <td>{user.telefone}</td>
-      
+              <td>
+                {user.endereco ? (
+                 
+                  `${user.endereco.rua}, Nº ${user.endereco.numero} - ${user.endereco.bairro}, ${user.endereco.cidade} - ${user.endereco.estado}`
+                ) : (
+                  "Endereço não informado"
+                )}
+              </td>
               <td>
                 {editIndex === index ? (
-                  <button className="btn btn-success btn-sm" onClick={salvarEdicao}>
+                  <button
+                    className="btn btn-success btn-sm"
+                    onClick={salvarEdicao}
+                  >
                     Salvar
                   </button>
                 ) : (
                   <>
-                    <button className="btn btn-primary btn-sm me-2" onClick={() => editar(index)}>
+                    <button
+                      className="btn btn-primary btn-sm me-2"
+                      onClick={() => editar(index)}
+                    >
                       Editar
                     </button>
-                    <button className="btn btn-danger btn-sm" onClick={() => apagar(index)}>
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => apagar(index)}
+                    >
                       Excluir
                     </button>
                   </>
@@ -113,4 +164,3 @@ const ListaUsuarios = () => {
 };
 
 export default ListaUsuarios;
-

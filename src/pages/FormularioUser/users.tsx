@@ -71,12 +71,12 @@ useEffect(() => {
  const tableDados = () => {
     if( editando !== null) {
       const updateDados = dadosCadastro.map((item, index) => (
-        index === editando ? {name,email,telefone}: item
+        index === editando ? {name,email,telefone,endereco}: item
       ))
       setDadosCadastro(updateDados)
       setEditando(null)
     } else{
-    setDadosCadastro([...dadosCadastro, {name,email,telefone}]);
+    setDadosCadastro([...dadosCadastro, {name,email,telefone,endereco}]);
   };
     setName("");
 
