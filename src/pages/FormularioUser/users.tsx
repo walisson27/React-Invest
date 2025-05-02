@@ -21,27 +21,14 @@ interface FormularioUsers {
   email: string;
   telefone: number;
   endereco: EnderecoProps;
- /* fullName: string;
-  telefone: number;
-  rg: number;
-  endereco: string;
-  carro: string;
-  placa: string;*/
 }
 
 const Users = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [telefone, setTelefone] = useState<number | undefined>(undefined);
-  /*const [fullName, setFullName] = useState<string>("");
-  const [endereco, setEndereco] = useState<string>("");
-  const [carro, setCarro] = useState<string>("");
-  const [placa, setPlaca] = useState<string>("");
-  const [telefone, setTelefone] = useState<number | undefined>(undefined);
-  const [rg, setRg] = useState<number | undefined>(undefined);*/
-
- const [dadosCadastro, setDadosCadastro] = useState<FormularioUsers[]>([]);
- const [editando, setEditando] = useState<number | null>(null)
+  const [dadosCadastro, setDadosCadastro] = useState<FormularioUsers[]>([]);
+  const [editando, setEditando] = useState<number | null>(null)
 
  const [endereco, setEndereco] = useState<EnderecoProps>({
   rua: '',
