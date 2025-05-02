@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { useEffect, } from "react";
-import "./Users.css"
+import { useState, useEffect } from "react";
+import "./Users.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Endereço from "./Endereço.tsx/Endereço";
-
+import Endereço from "../FormularioUser/Endereço.tsx/Endereço";
+import Usuario from "./Usuario/Usuario";
 
 interface EnderecoProps {
   rua: string;
@@ -24,67 +23,70 @@ interface FormularioUsers {
 }
 
 const Users = () => {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [telefone, setTelefone] = useState<number | undefined>(undefined);
   const [dadosCadastro, setDadosCadastro] = useState<FormularioUsers[]>([]);
-  const [editando, setEditando] = useState<number | null>(null)
+  const [editando, setEditando] = useState<number | null>(null);
 
- const [endereco, setEndereco] = useState<EnderecoProps>({
-  rua: '',
-  numero: 0,
-  bairro: '',
-  cidade: '',
-  estado: '',
-  cep: '',
-  complemento: '',
-  pontoReferencia: '',
-});
+  const [endereco, setEndereco] = useState<EnderecoProps>({
+    rua: '',
+    numero: 0,
+    bairro: '',
+    cidade: '',
+    estado: '',
+    cep: '',
+    complemento: '',
+    pontoReferencia: '',
+  });
 
- // Carregar dados do LocalStorage ao iniciar
- useEffect(() => {
-  const dadosSalvos = localStorage.getItem("usuarios");
-  if (dadosSalvos) {
-    setDadosCadastro(JSON.parse(dadosSalvos));
-  }
-}, []);
+  const [usuario, setUsuario] = useState<Omit<FormularioUsers, "endereco">>({
+    name: '',
+    telefone: 0,
+    email: '',
+  });
 
-// Salvar no LocalStorage sempre que os dados forem alterados
-useEffect(() => {
-  localStorage.setItem("usuarios", JSON.stringify(dadosCadastro));
-}, [dadosCadastro]);
+  // Carregar dados do LocalStorage ao iniciar
+  useEffect(() => {
+    const dadosSalvos = localStorage.getItem("usuarios");
+    if (dadosSalvos) {
+      setDadosCadastro(JSON.parse(dadosSalvos));
+    }
+  }, []);
 
+  // Salvar no LocalStorage sempre que os dados forem alterados
+  useEffect(() => {
+    localStorage.setItem("usuarios", JSON.stringify(dadosCadastro));
+  }, [dadosCadastro]);
 
- const tableDados = () => {
-    if( editando !== null) {
-      const updateDados = dadosCadastro.map((item, index) => (
-        index === editando ? {name,email,telefone,endereco}: item
-      ))
-      setDadosCadastro(updateDados)
-      setEditando(null)
-    } else{
-    setDadosCadastro([...dadosCadastro, {name,email,telefone,endereco}]);
+  const tableDados = () => {
+    const novoUsuario: FormularioUsers = {
+      ...usuario,
+      endereco,
+    };
+
+    if (editando !== null) {
+      const updateDados = dadosCadastro.map((item, index) =>
+        index === editando ? novoUsuario : item
+      );
+      setDadosCadastro(updateDados);
+      setEditando(null);
+    } else {
+      setDadosCadastro([...dadosCadastro, novoUsuario]);
+    }
+
+    console.log(dadosCadastro);
   };
-    setName("");
-
-    console.log(dadosCadastro)
-}
 
   return (
     <>
       <div>
-        <div className="form-row  ">
+        <div className="form-row">
           <div className="form-group col-md-6">
-            <label htmlFor="inputEmail4">Name</label>
-            <input type="name" className="form-control" id="inputEmail4" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
-            <label htmlFor="inputEmail4">Email</label>
-            <input type="email" className="form-control" id="inputEmail4" placeholder="Name" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <label htmlFor="inputEmail4">Telefone</label>
-            <input type="number" className="form-control" id="inputEmail4" placeholder="Name" value={telefone} onChange={(e) => setTelefone(Number(e.target.value))}/>
-            <Endereço endereco={endereco} setEndereco={setEndereco}/>
+            <Usuario usuario={usuario} setUsuario={setUsuario} />
+            <Endereço endereco={endereco} setEndereco={setEndereco} />
           </div>
         </div>
-        <button className="btn btn-primary" onClick={tableDados} >{editando !== null ? "Atualizar" : "Gravar"}</button>
+        <button className="btn btn-primary" onClick={tableDados}>
+          {editando !== null ? "Atualizar" : "Gravar"}
+        </button>
       </div>
     </>
   );

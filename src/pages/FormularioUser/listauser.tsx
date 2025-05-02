@@ -15,7 +15,7 @@ interface FormularioUsers {
   name: string;
   email: string;
   telefone: number;
-  endereco?: EnderecoProps; // Tornar opcional para evitar erro de undefined
+  endereco?: EnderecoProps;
 }
 
 const ListaUsuarios = () => {
@@ -29,15 +29,19 @@ const ListaUsuarios = () => {
     const dados = localStorage.getItem("usuarios");
     if (dados) {
       const usuariosConvertidos = JSON.parse(dados);
-      console.log("Usuários carregados:", usuariosConvertidos);
-      setUsuarios(usuariosConvertidos);
-    }
-  }, []);
 
-  useEffect(() => {
-    const dados = localStorage.getItem("usuarios");
-    if (dados) {
-      setUsuarios(JSON.parse(dados));
+      // Corrigir estrutura caso os dados estejam no formato { usuario, endereco }
+      const normalizados = usuariosConvertidos.map((item: any) => {
+        if (item.usuario) {
+          return {
+            ...item.usuario,
+            endereco: item.endereco || undefined,
+          };
+        }
+        return item;
+      });
+
+      setUsuarios(normalizados);
     }
   }, []);
 
@@ -45,10 +49,9 @@ const ListaUsuarios = () => {
     if (editIndex !== null) {
       const atualizados = [...usuarios];
       atualizados[editIndex] = {
+        ...atualizados[editIndex],
         name: nomeEditado,
         email: emailEditado,
-        telefone: usuarios[editIndex].telefone,
-        endereco: usuarios[editIndex].endereco,
       };
       setUsuarios(atualizados);
       localStorage.setItem("usuarios", JSON.stringify(atualizados));
@@ -72,8 +75,8 @@ const ListaUsuarios = () => {
   };
 
   const usersFiltrados = usuarios.filter((user) =>
-    user.name.toLowerCase().includes(buscar.toLowerCase()) ||
-    user.email.toLowerCase().includes(buscar.toLowerCase())
+    (user.name?.toLowerCase() || "").includes(buscar.toLowerCase()) ||
+    (user.email?.toLowerCase() || "").includes(buscar.toLowerCase())
   );
 
   return (
@@ -124,7 +127,6 @@ const ListaUsuarios = () => {
               <td>{user.telefone}</td>
               <td>
                 {user.endereco ? (
-                 
                   `${user.endereco.rua}, Nº ${user.endereco.numero} - ${user.endereco.bairro}, ${user.endereco.cidade} - ${user.endereco.estado}`
                 ) : (
                   "Endereço não informado"
