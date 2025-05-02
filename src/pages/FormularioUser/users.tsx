@@ -82,20 +82,7 @@ useEffect(() => {
 
     console.log(dadosCadastro)
 }
-  const editar = (index:number) => {
 
-    const item = dadosCadastro[index]
-    setName(item.name)
-    setEditando(index)
-
-  }
-
-  const apagar = (index:number) => {
-    const apagando = [...dadosCadastro]
-    apagando.splice(index,1)
-    setDadosCadastro(apagando)
-
-  }
   return (
     <>
       <div>
