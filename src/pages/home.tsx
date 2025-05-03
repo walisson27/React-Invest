@@ -6,14 +6,13 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 
 
-
 const Home = () => {
     const [showDados, setShowDados] = useState(false)
     const [showLista, setShowLista] = useState(false)
     const router = useRouter()
 
 
-const adicionando = (e) => {
+const adicionando = (e:any) => {
     e.preventDefault()
   if(showDados == false) {
         setShowDados(true)
@@ -24,7 +23,7 @@ const adicionando = (e) => {
 } 
 
 
-const lista = (e) => {
+const lista = (e:any) => {
     e.preventDefault()
   if(showLista == false) {
         setShowLista(true)
@@ -34,7 +33,7 @@ const lista = (e) => {
 
 } 
 
-const sair = (e) =>{
+const sair = (e:any) =>{
     e.preventDefault()
       router.push('/login/Login')
   };

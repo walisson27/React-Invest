@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./Users.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Endereço from "../FormularioUser/Endereço.tsx/Endereço";
 import Usuario from "./Usuario/Usuario";
@@ -73,7 +72,7 @@ const Users = () => {
     }
 
     console.log(dadosCadastro);
-  };
+  }
 
   return (
     <>
