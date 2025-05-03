@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./endereço.css"
 interface EnderecoProps {
   rua: string;
   numero: number;
@@ -18,7 +18,7 @@ interface Props {
 
 const Endereco = ({ endereco, setEndereco }: Props) => {
   return (
-    <div>
+    <div className='endereço-ajuste'>
       <h2>Endereço</h2>
       <input
         type="text"

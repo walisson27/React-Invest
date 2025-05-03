@@ -1,4 +1,6 @@
 import React from "react";
+import "./users.css";
+
 interface FormularioUsers {
   name: string;
   email: string;
@@ -14,7 +16,7 @@ const Usuario = ({ usuario, setUsuario }: Props) => {
 
   return (
     <div>
-      <div className="form-row">
+      <div className="usuario-ajuste">
         <div className="form-group col-md-6">
           <label htmlFor="inputName">Name</label>
           <input

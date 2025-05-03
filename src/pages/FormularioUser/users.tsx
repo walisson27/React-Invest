@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Endereço from "../FormularioUser/Endereço.tsx/Endereço";
 import Usuario from "./Usuario/Usuario";
-
+import "./Formulario.css"
 interface EnderecoProps {
   rua: string;
   numero: number;
@@ -76,13 +76,12 @@ const Users = () => {
 
   return (
     <>
-      <div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
+      <div className="form-row formulario-ajuste">
+          <div className="form-group col-md-7">
             <Usuario usuario={usuario} setUsuario={setUsuario} />
             <Endereço endereco={endereco} setEndereco={setEndereco} />
           </div>
-        </div>
+
         <button className="btn btn-primary" onClick={tableDados}>
           {editando !== null ? "Atualizar" : "Gravar"}
         </button>
