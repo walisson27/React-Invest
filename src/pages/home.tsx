@@ -43,7 +43,7 @@ const sair = (e:any) =>{
         <nav className="nav-home">
             <a href="">Home</a>
             <a href="" onClick={adicionando}>Cadastro</a>
-            <a href="" onClick={lista}>lista de Usuarios</a>
+            <a href="" onClick={lista}>Lista de Usuarios</a>
             <a href="" onClick={sair}>Sair</a>
         </nav>
         <section>
