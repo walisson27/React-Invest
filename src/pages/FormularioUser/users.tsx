@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Endereço from "../FormularioUser/Endereço.tsx/Endereço";
 import Usuario from "./Usuario/Usuario";
+import DateInput from "./data";
 import "./Formulario.css"
 interface EnderecoProps {
   rua: string;
@@ -21,10 +22,17 @@ interface FormularioUsers {
   endereco: EnderecoProps;
 }
 
+type DateInputProps = {
+  onDateChange: (date: string) => void;
+  label?: string;
+  value?: string;
+};
+
 const Users = () => {
   const [dadosCadastro, setDadosCadastro] = useState<FormularioUsers[]>([]);
   const [editando, setEditando] = useState<number | null>(null);
 
+  const [dataCadastro,setDataCadastro] = useState<string>('');
   const [endereco, setEndereco] = useState<EnderecoProps>({
     rua: '',
     numero: 0,
@@ -80,6 +88,7 @@ const Users = () => {
           <div className="form-group col-md-7">
             <Usuario usuario={usuario} setUsuario={setUsuario} />
             <Endereço endereco={endereco} setEndereco={setEndereco} />
+          <DateInput label="Data" value={dataCadastro} onDateChange={setDataCadastro} />
           </div>
 
         <button className="btn btn-primary" onClick={tableDados}>
