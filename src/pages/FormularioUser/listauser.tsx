@@ -16,7 +16,14 @@ interface FormularioUsers {
   email: string;
   telefone: number;
   endereco?: EnderecoProps;
+  dataCadastro: DateInputProps;
 }
+
+type DateInputProps = {
+  onDateChange: (date: string) => void;
+  label?: string;
+  value?: string;
+};
 
 const ListaUsuarios = () => {
   const [usuarios, setUsuarios] = useState<FormularioUsers[]>([]);
@@ -130,6 +137,13 @@ const ListaUsuarios = () => {
                   `${user.endereco.rua}, Nº ${user.endereco.numero} - ${user.endereco.bairro}, ${user.endereco.cidade} - ${user.endereco.estado}`
                 ) : (
                   "Endereço não informado"
+                )}
+              </td>
+              <td>
+                {user.dataCadastro ? (
+                  `${user.dataCadastro}`
+                ) : (
+                  <span className="text-muted">Sem endereço</span>
                 )}
               </td>
               <td>

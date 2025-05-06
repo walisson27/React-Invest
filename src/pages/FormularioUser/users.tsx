@@ -3,30 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Endereço from "../FormularioUser/Endereço.tsx/Endereço";
 import Usuario from "./Usuario/Usuario";
 import DateInput from "./data";
+import { FormularioUsers,EnderecoProps } from "./Types/Types";
 import "./Formulario.css"
-interface EnderecoProps {
-  rua: string;
-  numero: number;
-  bairro: string;
-  cidade: string;
-  estado: string;
-  cep: string;
-  complemento: string;
-  pontoReferencia: string;
-}
 
-interface FormularioUsers {
-  name: string;
-  email: string;
-  telefone: number;
-  endereco: EnderecoProps;
-}
-
-type DateInputProps = {
-  onDateChange: (date: string) => void;
-  label?: string;
-  value?: string;
-};
 
 const Users = () => {
   const [dadosCadastro, setDadosCadastro] = useState<FormularioUsers[]>([]);
@@ -44,7 +23,7 @@ const Users = () => {
     pontoReferencia: '',
   });
 
-  const [usuario, setUsuario] = useState<Omit<FormularioUsers, "endereco">>({
+  const [usuario, setUsuario] = useState<Omit<FormularioUsers, "endereco" | "dataCadastro">>({
     name: '',
     telefone: 0,
     email: '',
@@ -67,6 +46,7 @@ const Users = () => {
     const novoUsuario: FormularioUsers = {
       ...usuario,
       endereco,
+      dataCadastro,
     };
 
     if (editando !== null) {
