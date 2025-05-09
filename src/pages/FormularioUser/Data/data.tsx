@@ -1,35 +1,40 @@
+import React from "react";
 import { useState } from "react";
+import Input from "./input"
 
-
+type Venda = {
+    id: string
+    nome: string
+    status: string
+}
 
 const Data = () => {
+    const [data, setData] = useState<null | Venda[]>(null);
     const [inicio, setInicio] = useState("");
     const [final, setFinal] = useState("");
 
+
+React.useEffect(() => {
+    if(inicio !== "" && final !== "") 
+       fetch(`https://data.origamid.dev/vendas/?inicio=${inicio}&final=${final}`)
+        .then((r) => r.json())
+        .then((json) => setData(json as Venda[]))
+        .catch((error) => console.log(error))
+}, [inicio, final]);  
     return (
         <>
-            <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="inicio">Data de Início</label>
-                    <input
-                        type="date"
-                        id="inicio"
-                        value={inicio}
-                        onChange={(e) => setInicio(e.target.value)}
-                        className="border border-gray-300 rounded p-2"
-                    />
-                </div>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="final">Data de Fim</label>
-                    <input
-                        type="date"
-                        id="final"
-                        value={final}
-                        onChange={(e) => setFinal(e.target.value)}
-                        className="border border-gray-300 rounded p-2"
-                    />
-                </div>
+            <div>
+                <Input label="Inicio" setState={setInicio} value={inicio} type="date" />
+                <Input label="Final" setState={setFinal} value={final} type="date" />
             </div>
+            <ul>
+                {data && data.map((venda) => (
+                    <li key={venda.id}>
+                        <h2>{venda.nome}</h2>
+                        <p>{venda.status}</p>
+                    </li>
+                ))}
+            </ul>
         </>
     );
 }
