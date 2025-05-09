@@ -1,5 +1,6 @@
+import React from "react";
 
-type InputProps = {
+type InputProps = React.ComponentProps<'input'> & {
     label: string;
     setState: React.Dispatch<React.SetStateAction<string>>;
 }
