@@ -5,7 +5,7 @@ import Usuario from "./Usuario/Usuario";
 import DateInput from "./data";
 import { FormularioUsers,EnderecoProps } from "./Types/Types";
 import "./Formulario.css"
-
+import Data from "./Data/data";
 
 const Users = () => {
   const [dadosCadastro, setDadosCadastro] = useState<FormularioUsers[]>([]);
@@ -66,6 +66,7 @@ const Users = () => {
     <>
       <div className="form-row formulario-ajuste">
           <div className="form-group col-md-7">
+            <Data/>
             <Usuario usuario={usuario} setUsuario={setUsuario} />
             <Endereço endereco={endereco} setEndereco={setEndereco} />
           <DateInput label="Data" value={dataCadastro} onDateChange={setDataCadastro} />
