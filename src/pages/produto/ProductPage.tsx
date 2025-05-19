@@ -5,10 +5,15 @@ import VariantSelector from "./components/VariantSelector";
 import CepChecker from "./components/CepChecker";
 import { productData } from "./productData";
 
+
+
 const ProductPage = () => {
+    const product = productData[0]; // Pegando o primeiro produto do array
+
+
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [mainImage, setMainImage] = useState(productData.images[0]);
+  const [mainImage, setMainImage] = useState(product.images[0]);
 
   // Recupera dados do localStorage ao carregar
   useEffect(() => {
@@ -41,26 +46,27 @@ const ProductPage = () => {
   return (
     <main className="max-w-7xl mx-auto p-6 grid md:grid-cols-2 gap-10">
       <ImageGallery
-        images={productData.images}
+        images={product.images}
         mainImage={mainImage}
         setMainImage={setMainImage}
       />
 
       <section className="flex flex-col gap-6">
-        <h1 className="text-3xl font-bold">{productData.title}</h1>
+        <h1 className="text-3xl font-bold">{product.title}</h1>
         <p className="text-2xl text-green-600 font-semibold">
-          R$ {productData.price.toFixed(2)}
+          R$ {product.price.toFixed(2)}
         </p>
 
         <VariantSelector
           label="Tamanho"
-          options={productData.variants.size}
+          options={product.variants.sizes}
           selected={selectedSize}
           onChange={setSelectedSize}
         />
+
         <VariantSelector
           label="Cor"
-          options={productData.variants.color}
+          options={product.variants.colors}
           selected={selectedColor}
           onChange={setSelectedColor}
         />

@@ -1,31 +1,36 @@
-// src/components/ImageGallery.tsx
+// src/pages/components/ImageGallery.tsx
 type Props = {
   images: string[];
   mainImage: string;
-  setMainImage: (src: string) => void;
+  setMainImage: (image: string) => void;
 };
 
 const ImageGallery = ({ images, mainImage, setMainImage }: Props) => {
-  return (
-    <div className="w-full flex flex-col items-center md:w-[35%] gap-4">
-      <div className="w-full aspect-square">
-        <img
-          src={mainImage}
-          alt="Produto"
-          className="rounded-xl w-full h-full object-cover"
-        />
-      </div>
+  if (!images || images.length === 0) return <p>Nenhuma imagem disponível.</p>;
 
-      <div className="flex flex-wrap gap-2 justify-center">
-        {images.map((img, i) => (
+  return (
+    <div className="flex flex-col gap-4">
+      {/* Imagem principal */}
+      <img
+        src={mainImage}
+        alt="Imagem principal do produto"
+        className="w-full h-[400px] object-contain border rounded-lg"
+      />
+
+      {/* Miniaturas */}
+      <div className="flex gap-2 overflow-x-auto">
+        {images.map((img, idx) => (
           <img
-            key={i}
+            key={idx}
             src={img}
-            alt={`Miniatura ${i + 1}`}
-            onClick={() => setMainImage(img)}
-            className={`w-14 h-14 object-cover rounded-md cursor-pointer border transition duration-200 ${
-              mainImage === img ? "border-blue-500" : "border-gray-300"
+            alt={`Miniatura ${idx}`}
+            className={`w-20 h-20 object-cover rounded-md cursor-pointer border-2 ${
+              mainImage === img ? "border-blue-500" : "border-transparent"
             }`}
+            onClick={() => {
+              console.log("Imagem clicada:", img); // deve aparecer no console
+              setMainImage(img);
+            }}
           />
         ))}
       </div>
