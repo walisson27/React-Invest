@@ -5,6 +5,8 @@ import Produtor from "../pages/produto/ProductPage"
 import ListaUsuarios from "./FormularioUser/listauser"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { DarkModeProvider } from "@/Contexte/Context"
+import ModeDark from "./Darkmode/ModeDark"
 
 
 const Home = () => {
@@ -50,7 +52,9 @@ const sair = (e:any) =>{
   };
 
     return(
-        <>
+        
+        <DarkModeProvider>
+        <ModeDark/>
         <nav className="nav-home">
             <a href="">Home</a>
             <a href="" onClick={adicionando}>Cadastro</a>
@@ -63,9 +67,7 @@ const sair = (e:any) =>{
             {showLista && <ListaUsuarios/>}
             {showProduto && <Produtor/>}
         </section>
-
-
-        </>
+      </DarkModeProvider>
     )
 }
 

@@ -87,6 +87,7 @@ const ListaUsuarios = () => {
   );
 
   return (
+    
     <div className="mt-4">
       <input
         type="text"
@@ -176,6 +177,7 @@ const ListaUsuarios = () => {
         </tbody>
       </table>
     </div>
+    
   );
 };
 

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { DarkModeProvider } from "./Contexte/Context";
+import ModeDark from "./pages/Darkmode/ModeDark";
 import Users from "./pages/FormularioUser/users";
 import ListaUsuarios from "./pages/FormularioUser/listauser";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,7 +10,9 @@ const App = () => {
   const [mostrarLista, setMostrarLista] = useState(false);
 
   return (
+     <DarkModeProvider>
     <div className="container mt-4">
+      <ModeDark/>
       <h1>Cadastro de Usuários</h1>
       <Users />
       <hr />
@@ -17,7 +21,9 @@ const App = () => {
       </button>
 
       {mostrarLista && <ListaUsuarios />}
+      
     </div>
+    </DarkModeProvider>
   );
 };
 
