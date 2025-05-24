@@ -16,7 +16,7 @@ const ModeDark = () => {
   return (
     
     <button onClick={() => setDark(!dark)} className="btn btn-secondary">
-      Toggle Dark Mode
+     Dark Mode
     </button>
   );
 };

@@ -54,13 +54,13 @@ const sair = (e:any) =>{
     return(
         
         <DarkModeProvider>
-        <ModeDark/>
         <nav className="nav-home">
             <a href="">Home</a>
             <a href="" onClick={adicionando}>Cadastro</a>
             <a href="" onClick={lista}>Lista de Usuarios</a>
             <a href="" onClick={produto}>Produto</a>
             <a href="" onClick={sair}>Sair</a>
+        <ModeDark/> 
         </nav>
         <section>
             {showDados && <Users/>}
