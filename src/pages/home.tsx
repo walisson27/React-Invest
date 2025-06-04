@@ -59,6 +59,7 @@ const sair = (e:any) =>{
             <a href="" onClick={adicionando}>Cadastro</a>
             <a href="" onClick={lista}>Lista de Usuarios</a>
             <a href="" onClick={produto}>Produto</a>
+            <a href=""> Fintench</a>
             <a href="" onClick={sair}>Sair</a>
         <ModeDark/> 
         </nav>
