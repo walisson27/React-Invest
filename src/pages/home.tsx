@@ -2,6 +2,7 @@ import "./Home/home.css"
 import "../../reset.css"
 import Users from "./FormularioUser/users"
 import Produtor from "./produto/ProductPage"
+import Fintench from "../app/Fintech/Pages/ProdutosTech"
 import ListaUsuarios from "./FormularioUser/listauser"
 import { useRouter } from "next/router"
 import { useState } from "react"
@@ -13,6 +14,7 @@ const Home = () => {
     const [showDados, setShowDados] = useState(false)
     const [showLista, setShowLista] = useState(false)
     const [showProduto, setShowProduto] = useState(false)
+    const [showFintench, setShowFintench] = useState(false)
     const router = useRouter()
 
 
@@ -32,6 +34,16 @@ const produto = (e:any) => {
         setShowProduto(true)
   }  else {
         setShowProduto(false)
+  }
+
+}
+
+const fintench = (e:any) => {
+    e.preventDefault()
+  if(showFintench == false) {
+        setShowFintench(true)
+  }  else {
+        setShowFintench(false)
   }
 
 }
@@ -59,7 +71,7 @@ const sair = (e:any) =>{
             <a href="" onClick={adicionando}>Cadastro</a>
             <a href="" onClick={lista}>Lista de Usuarios</a>
             <a href="" onClick={produto}>Produto</a>
-            <a href=""> Fintench</a>
+            <a href="" onClick={fintench}>Fintench</a>
             <a href="" onClick={sair}>Sair</a>
         <ModeDark/> 
         </nav>
@@ -67,6 +79,7 @@ const sair = (e:any) =>{
             {showDados && <Users/>}
             {showLista && <ListaUsuarios/>}
             {showProduto && <Produtor/>}
+            {showFintench && <Fintench/>}
         </section>
       </DarkModeProvider>
     )
