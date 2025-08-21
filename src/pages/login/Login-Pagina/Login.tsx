@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import "./login.css"
-import "../../../reset.css"
+import "../../../../reset.css"
 import { useRouter } from "next/router";
 
 interface UserLogin {
@@ -54,7 +54,7 @@ const Logi = () => {
           onChange={(e) => setSenha(e.target.value)}
         />
         <button onClick={login}>Login</button>
-        <Link className="link-cadatro" href="./cadastro/Cadastro">
+        <Link className="link-cadatro" href="../cadastro/Cadastro">
           Não tem conta? Cadastra-se
         </Link>
       </section>
