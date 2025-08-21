@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import "./login.css"
-import "../../../reset.css";
+import "../../../reset.css"
 import { useRouter } from "next/router";
 
 interface UserLogin {
@@ -11,7 +11,7 @@ interface UserLogin {
 }
 
 
-const Logi = (props:any) => {
+const Logi = () => {
   const emailUser = "walisson27";
   const senhaUser = "souza";
   const [email, setEmail] = useState<string>("");
@@ -28,15 +28,17 @@ const Logi = (props:any) => {
 
   const autentificacao = () =>{
     if (email === emailUser && senha === senhaUser) {
-      router.push('/home',); // Passando o email como estado
+      router.push("/Home/home"); // Passando o email como estado
     } else {
       alert("Login inválido");
     }
   };
 
   return (
+    <>
     <div className="login-center">
       <section className="login">
+        <h1 className="titulo-login">Welcome</h1>
         <input
           className="email"
           type="text"
@@ -52,12 +54,12 @@ const Logi = (props:any) => {
           onChange={(e) => setSenha(e.target.value)}
         />
         <button onClick={login}>Login</button>
-        <Link href="../cadastro/Cadastro">
+        <Link className="link-cadatro" href="./cadastro/Cadastro">
           Não tem conta? Cadastra-se
         </Link>
       </section>
-      
     </div>
+    </>
   );
 };
 
