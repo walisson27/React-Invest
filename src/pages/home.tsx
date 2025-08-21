@@ -1,9 +1,6 @@
 import "./Home/home.css"
 import "../../reset.css"
-import Users from "./FormularioUser/users"
-import Produtor from "./produto/ProductPage"
 import Fintench from "../app/Fintech/Pages/ProdutosTech"
-import ListaUsuarios from "./FormularioUser/listauser"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { DarkModeProvider } from "@/Contexte/Context"
@@ -68,17 +65,11 @@ const sair = (e:any) =>{
         <DarkModeProvider>
         <nav className="nav-home">
             <a href="">Home</a>
-            <a href="" onClick={adicionando}>Cadastro</a>
-            <a href="" onClick={lista}>Lista de Usuarios</a>
-            <a href="" onClick={produto}>Produto</a>
             <a href="" onClick={fintench}>Fintench</a>
             <a href="" onClick={sair}>Sair</a>
         <ModeDark/> 
         </nav>
         <section>
-            {showDados && <Users/>}
-            {showLista && <ListaUsuarios/>}
-            {showProduto && <Produtor/>}
             {showFintench && <Fintench/>}
         </section>
       </DarkModeProvider>
