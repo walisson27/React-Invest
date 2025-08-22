@@ -1,10 +1,9 @@
 // pages/index.tsx
 import { GetServerSideProps } from 'next';
-import Logi from './login/Login-Pagina/Login';
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     redirect: {
-      destination: './login/Login-Pagina/Login',
+      destination: './Login-Pagina/Login',
       permanent: false,
     },
   };

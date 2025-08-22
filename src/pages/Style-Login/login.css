@@ -67,7 +67,6 @@ button {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-
   width: 247px;
 }
 
@@ -81,6 +80,10 @@ button:active {
   transform: scale(0.95); 
 }
 
+
+.button-cadastro{
+  margin-bottom: 10px;
+}
     
 .link-cadatro{
     color: white;

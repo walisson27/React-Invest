@@ -1,8 +1,8 @@
 "use client"; // Adicione esta linha no topo do arquivo
 import { useState } from "react";
 import Link from "next/link";
-import "./login.css"
-import "../../../../reset.css"
+import "../Style-Login/login.css"
+import "../../../reset.css"
 import { useRouter } from "next/router";
 
 interface UserLogin {
