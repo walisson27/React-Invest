@@ -1,10 +1,9 @@
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import "../../../reset.css"
 import "../Style-Login/login.css"
-import Logi from "../Login-Pagina/Login";
-interface cadastroUsuarios {
+
+interface cadastroUsuario {
   email : string,
   senha : string,
 }
@@ -12,7 +11,6 @@ interface cadastroUsuarios {
 const Cadastro = () => {
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
-  const [usuario, setUsuario] = useState<cadastroUsuarios[]>([])
   const router = useRouter()
 
 
@@ -21,11 +19,23 @@ const Cadastro = () => {
       alert("cadastrar todos campos")
       return
     }
-      setUsuario([...usuario, {email,senha}])
-      setEmail("")
-      setSenha("")
-      router.push('../Login-Pagina/Login')
-      console.log(usuario)
+    
+    // Recupera usuarios salvos
+    const usuariosSalvos: cadastroUsuario[] = JSON.parse(localStorage.getItem("cadastroUsuarios") || "[]")
+
+    // Verifica se ja existem
+    const existe = usuariosSalvos.find((u) => u.email === email)
+    if(existe) {
+      alert("Esse email já está cadastrado")
+      return
+    }
+
+    // Adiciona novo usuário
+    usuariosSalvos.push({email, senha})
+    localStorage.setItem("cadastroUsuarios", JSON.stringify(usuariosSalvos))
+
+    alert("Usuário cadstrado com sucesso")
+    router.push('../Login-Pagina/Login')
   }
 
   const login = () => {
@@ -50,9 +60,6 @@ const Cadastro = () => {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <Link className="button-cadastro" href="../Login-Pagina/Login">
-          Não tem conta? Cadastra-se
-        </Link>
           <button className="button-cadastro"  onClick={cadastro}>Cadastro</button>
           <button onClick={login}>Login</button>
         </section>

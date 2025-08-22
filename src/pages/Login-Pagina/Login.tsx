@@ -5,34 +5,33 @@ import "../Style-Login/login.css"
 import "../../../reset.css"
 import { useRouter } from "next/router";
 
-interface UserLogin {
+interface cadastroUsuario {
   email: string;
   senha: string;
 }
 
 
 const Logi = () => {
-  const emailUser = "walisson27";
-  const senhaUser = "souza";
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
-  const [usuarios, setUsuarios] = useState<UserLogin[]>([]);
   const router = useRouter()
 
   const login = () => {
-    setUsuarios([...usuarios, { email, senha }]);
-    setEmail("");
-    setSenha("");
-    autentificacao()
-  };
+    const usuariosSalvos: cadastroUsuario[] = JSON.parse(localStorage.getItem("cadastroUsuarios") || "[]")
 
-  const autentificacao = () =>{
-    if (email === emailUser && senha === senhaUser) {
-      router.push("/Home/home"); // Passando o email como estado
-    } else {
-      alert("Login inválido");
+    const cadastradoUsuario = usuariosSalvos.find(
+      (u) => u.email === email && u.senha === senha 
+    )
+
+    if(cadastradoUsuario) {
+      localStorage.setItem("Usuario Logado", JSON.stringify(cadastradoUsuario))
+      alert("Login Realizado com Sucesso")
+      router.push("/home")
+    }else{
+      alert("Email ou Senha Inválidos")
     }
   };
+
 
   return (
     <>
