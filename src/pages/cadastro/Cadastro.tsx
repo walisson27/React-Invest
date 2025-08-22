@@ -55,7 +55,7 @@ const Cadastro = () => {
           />
           <input
             className="senha"
-            type="text"
+            type="password"
             placeholder="Senha"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
