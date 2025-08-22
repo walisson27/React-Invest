@@ -26,7 +26,7 @@ const Logi = () => {
     if(cadastradoUsuario) {
       localStorage.setItem("Usuario Logado", JSON.stringify(cadastradoUsuario))
       alert("Login Realizado com Sucesso")
-      router.push("/home")
+      router.push("../Home/home")
     }else{
       alert("Email ou Senha Inválidos")
     }
