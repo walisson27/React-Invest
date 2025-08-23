@@ -1,5 +1,4 @@
 import "../Home/home.css"
-import "../../../reset.css"
 import Fintench from "../../app/Fintech/Pages/ProdutosTech"
 import { useRouter } from "next/router"
 import { useState } from "react"

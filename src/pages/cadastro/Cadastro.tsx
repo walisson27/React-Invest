@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import "../../../reset.css"
 import "../Style-Login/login.css"
 
 interface cadastroUsuario {
