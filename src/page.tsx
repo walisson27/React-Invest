@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DarkModeProvider } from "./Contexte/Context";
 import ModeDark from "./pages/Darkmode/ModeDark";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../reset.css"
 import "./index.css";
 const App = () => {
   const [mostrarLista, setMostrarLista] = useState(false);
