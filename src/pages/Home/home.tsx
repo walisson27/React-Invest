@@ -1,31 +1,22 @@
 import "../Home/home.css"
-import Fintench from "../../app/Fintech/Pages/ProdutosTech"
 import { useRouter } from "next/router"
-import { useState } from "react"
 import "../../../reset.css"
+import Link from "next/link"
 import { DarkModeProvider } from "@/Contexte/Context"
 import ModeDark from "../Darkmode/ModeDark"
 
-
 const Home = () => {
-    const [showFintench, setShowFintench] = useState(false)
     const router = useRouter()
-
-
-const fintench = (e:any) => {
-    e.preventDefault()
-  if(showFintench == false) {
-        setShowFintench(true)
-  }  else {
-        setShowFintench(false)
-  }
-
-}
 
 const sair = (e:any) =>{
     e.preventDefault()
-      router.push('/login/Login')
+      router.push('../Login-Pagina/Login')
   };
+
+const fintench = (e:any) =>{
+  e.preventDefault()
+   router.push("../../")
+}
 
     return(
         
@@ -34,15 +25,10 @@ const sair = (e:any) =>{
         <nav className="nav-home">
           <h1 className="website">WebSite</h1>
           <ModeDark/> 
-            <a href="">Home</a>
-            <a href="" onClick={fintench}>Fintench</a>
-            <a href="" onClick={sair}>Sair</a>
+            <Link href="/Home/home">Home</Link>
+            <Link href="/">Sair</Link>
         </nav>
-        <section>
-            {showFintench && <Fintench/>}
-        </section>
         <header className="header-home">
-          <h2>Welcome</h2>
         </header>
       </div> 
       </DarkModeProvider>
