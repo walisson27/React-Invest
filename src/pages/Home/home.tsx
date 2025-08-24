@@ -26,6 +26,7 @@ const fintench = (e:any) =>{
           <h1 className="website">WebSite</h1>
           <ModeDark/> 
             <Link href="/Home/home">Home</Link>
+            <Link href="/invest/invest">Invest</Link>
             <Link href="/">Sair</Link>
         </nav>
         <header className="header-home">

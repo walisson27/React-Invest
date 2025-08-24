@@ -1,0 +1,10 @@
+.nav-invest{
+    width: 100%;
+}
+
+.nav-invest ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
