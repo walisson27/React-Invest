@@ -1,5 +1,6 @@
 .nav-invest{
     width: 100%;
+    height: 40px;
 }
 
 .nav-invest ul{
@@ -7,4 +8,45 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-end;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100vh;
+    background-color: rgb(93, 110, 110);
+}
+
+.conta-invest{
+    height: 35%;
+    background-color: orange;
+}
+
+.current-invest{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    width: 50%;
+}
+
+.categories-invest{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    width: 50%;
+}
+
+.header-invest{
+    display: flex;
+}
+
+.article-invest{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 40px;
 }
