@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { use, useState } from "react"
 import "../../../reset.css"
 import "./invest.css"
+import "./Styles/button.css"
 import Grafico from "./graficos/Graficos";
 
 import { Bar, Pie } from "react-chartjs-2";
@@ -18,6 +19,7 @@ const Invest = () => {
   const [nome, setNome] = useState("")
   const [valor, setValor] = useState("")
   const [openModal, setOpenModal] = useState(false)
+  const [aside, setAside] = useState(false)
 
   const adicionarCategoria = () => {
     if (nome.trim() !== "" && valor !== "") {
@@ -78,9 +80,15 @@ const Invest = () => {
         </div>
       )}
 
+
       <header className="header-invest">
-        <aside>
-          <h2 className="h2-invest">Categorias Cadastradas</h2>
+        <button className="btn-animated" onClick={() => setAside(prev => !prev)}>
+          {aside ? "Fechar" : "Abrir"}
+        </button>
+        {aside && (
+        <div >
+        <aside className="modal-content">
+          <h2 className="h2-invest" onClick={() => setAside(prev => !prev)}>Categorias Cadastradas</h2>
           <ul>
             {categorias.map((c, index) => (
               <li key={index}>
@@ -89,6 +97,8 @@ const Invest = () => {
             ))}
           </ul>
         </aside>
+        </div>
+          )}
       <article className="article-invest">
           <section className="categories-invest">
             <h2 className="h2-invest">Gráfico em Pizza</h2>
