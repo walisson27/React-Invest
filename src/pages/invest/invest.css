@@ -26,12 +26,23 @@ aside{
     background-color: orange;
 }
 
+.header-invest{
+    display: flex;
+}
+
+.article-invest{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
 .current-invest{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100px;
-    width: 50%;
+    width: 100%;
 }
 
 .categories-invest{
@@ -39,19 +50,15 @@ aside{
     flex-direction: column;
     align-items: center;
     height: 100px;
-    width: 50%;
-}
-
-.header-invest{
-    display: flex;
-}
-
-.article-invest{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     width: 100%;
-    height: 40px;
+    margin-bottom: 97px;
+}
+
+.grafico-wrapper {
+  width: 100%;
+  max-width: 800px;  /* limite opcional */
+  height: 800px;     /* altura ajustável */
+  margin: auto;      /* centraliza */
 }
 
 aside {

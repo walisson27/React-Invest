@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "../../../reset.css"
 import "./invest.css"
+import Grafico from "./graficos/Graficos";
 
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
@@ -88,22 +89,23 @@ const Invest = () => {
             ))}
           </ul>
         </aside>
-
-        <article className="article-invest">
-          <section className="current-invest">
-            <h2 className="h2-invest">Gráfico em Barras</h2>
-            <Bar
-              data={data}
-              options={{ responsive: true, plugins: { legend: { position: "top" } } }}
-            />
-          </section>
-
+      <article className="article-invest">
           <section className="categories-invest">
             <h2 className="h2-invest">Gráfico em Pizza</h2>
-            <Pie data={data} />
+            <div className="grafico-wrapper">
+               <Pie data={data} options={{ responsive: true, maintainAspectRatio: false,  }} />
+            </div>
+           
           </section>
-        </article>
+            <section className="current-invest">
+            <h2 className="h2-invest">Gráfico em Barras</h2>
+            <div className="grafico-wrapper">
+              <Bar data={data} options={{ responsive: true, maintainAspectRatio: false }} />
+            </div>
+          </section>
+      </article>
       </header>
+
     </>
   )
 }
