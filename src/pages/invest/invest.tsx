@@ -20,6 +20,7 @@ const Invest = () => {
   const [valor, setValor] = useState("")
   const [openModal, setOpenModal] = useState(false)
   const [aside, setAside] = useState(false)
+  const [salario, setSalario] = useState<number>(0)
 
   const adicionarCategoria = () => {
     if (nome.trim() !== "" && valor !== "") {
@@ -46,6 +47,10 @@ const Invest = () => {
     ],
   };
 
+const total = categorias.map(c => c.valor).reduce((a, b) => a + b, 0)
+
+const SomaTotal = salario - total
+
   return (
     <>
       <nav className="nav-invest">
@@ -62,6 +67,7 @@ const Invest = () => {
         <div className="modal-overlay">
           <div className="modal-content">
             <h2>Cadastro de Categoria</h2>
+            <input type="" placeholder="Salario" value={salario} onChange={(e) => setSalario(Number(e.target.value))} />
             <input
               placeholder="Nome da Categoria"
               type="text"
@@ -86,18 +92,25 @@ const Invest = () => {
           {aside ? "Fechar" : "Abrir"}
         </button>
         {aside && (
-        <div >
-        <aside className="modal-content">
-          <h2 className="h2-invest" onClick={() => setAside(prev => !prev)}>Categorias Cadastradas</h2>
-          <ul>
+        <aside className="aside-categorias">
+          <h2 className="aside-titulo" onClick={() => setAside(prev => !prev)}>
+            Categorias Cadastradas
+          </h2>
+          <ul className="lista-categorias">
             {categorias.map((c, index) => (
-              <li key={index}>
-                <strong>{c.nome}: R$</strong> {c.valor}
+              <li key={index} className="categoria-item">
+                <span className="categoria-nome">{c.nome}</span>
+                <span className="categoria-valor">R$ {c.valor}</span>
               </li>
             ))}
           </ul>
-        </aside>
-        </div>
+          <div className="total-wrapper">
+            <strong>Total:</strong> <span>R$ {total}</span>
+          </div>
+          <div className="total-wrapper">
+            <strong>Salario:</strong> <span>R$ {SomaTotal}</span>
+          </div>
+        </aside>  
           )}
       <article className="article-invest">
           <section className="categories-invest">
