@@ -2,6 +2,7 @@ import {  useState } from "react"
 import "../../../reset.css"
 import "./invest.css"
 import "./Styles/button.css"
+import Link from "next/link"
 import { DarkModeProvider } from "@/Contexte/Context"
 import ModeDark from "../Darkmode/ModeDark"
 import Grafico from "./graficos/Graficos";
@@ -59,12 +60,11 @@ const SomaTotal = salario - total
       <DarkModeProvider>
       <nav className="nav-invest">
         <ul>
-          <li onClick={() => setOpenModal(true)}>Rendimentos</li>
-          <ModeDark/>
-          <li>Dashboard</li>
-          <li>Payments</li>
-          <li>Savings</li>
-          <li>Investing</li>
+          <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
+          <li><Link href={"/Dashboard"}>Dashboard</Link></li>
+          <li><Link href={"/payments"}>Payments</Link></li>
+          <li><Link href={"/savings"}>Savings</Link></li>
+          <li><Link href={"/Home/home"}>Sair</Link></li>
         </ul>
       </nav>
       {openModal && (
