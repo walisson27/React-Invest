@@ -6,7 +6,6 @@ import Link from "next/link"
 import { DarkModeProvider } from "@/Contexte/Context"
 import ModeDark from "../Darkmode/ModeDark"
 import Grafico from "./graficos/Graficos";
-
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
 import { DraftMode } from "next/dist/client/components/draft-mode"
@@ -61,10 +60,11 @@ const SomaTotal = salario - total
       <nav className="nav-invest">
         <ul>
           <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
-          <li><Link href={"/Dashboard"}>Dashboard</Link></li>
+          <li><Link href={"./dashboard/Dashboard"}>Dashboard</Link></li>
           <li><Link href={"/payments"}>Payments</Link></li>
           <li><Link href={"/savings"}>Savings</Link></li>
           <li><Link href={"/Home/home"}>Sair</Link></li>
+          <li><ModeDark/></li>
         </ul>
       </nav>
       {openModal && (
