@@ -2,6 +2,7 @@ import {  useState } from "react"
 import "../../../reset.css"
 import "./invest.css"
 import "./Styles/button.css"
+import "../invest/navbar/Navbar.css"
 import Link from "next/link"
 import { DarkModeProvider } from "@/Contexte/Context"
 import ModeDark from "../Darkmode/ModeDark"
@@ -9,6 +10,7 @@ import Grafico from "./graficos/Graficos";
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
 import { DraftMode } from "next/dist/client/components/draft-mode"
+import Navbar from "./navbar/Navbar"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
@@ -56,7 +58,6 @@ const SomaTotal = salario - total
 
   return (
     <>
-      <DarkModeProvider>
       <nav className="nav-invest">
         <ul>
           <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
@@ -64,9 +65,9 @@ const SomaTotal = salario - total
           <li><Link href={"/payments"}>Payments</Link></li>
           <li><Link href={"/savings"}>Savings</Link></li>
           <li><Link href={"/Home/home"}>Sair</Link></li>
-          <li><ModeDark/></li>
         </ul>
-      </nav>
+    </nav>
+
       {openModal && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -130,7 +131,6 @@ const SomaTotal = salario - total
           </section>
       </article>
       </header>
-    </DarkModeProvider>
     </>
   )
 }

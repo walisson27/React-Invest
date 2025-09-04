@@ -3,6 +3,7 @@
     height: 47px;
     padding-top: 10px;
     background-color: blueviolet;
+    text-align: none;
 }
 
 .nav-invest ul {
@@ -13,7 +14,8 @@
     font-size:large;
 }
 
-.nav-invest li{
+.nav-invest li a{ 
   cursor: pointer;
   color: white;
+  text-decoration: none !important;
 }
