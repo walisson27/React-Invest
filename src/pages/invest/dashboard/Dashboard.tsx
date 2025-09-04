@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Navbar from "../navbar/Navbar";
+
+
 
 interface Moeda {
     id: string;
@@ -41,6 +44,7 @@ useEffect (() =>{
 
     return(
         <>
+        <Navbar/>
         <input type="text" name="buscar" value={buscar} onChange={(e)=>setBuscar(e.target.value)}/>
         <ul>
             {filtrados.map((item: any) => (
