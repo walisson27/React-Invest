@@ -12,13 +12,14 @@ interface Moeda {
 const Dashboard = () =>{
   const [dados, setDados] = useState([])
   const [pagina, setPagina] = useState(1)
+  const [buscar, setBuscar] = useState("")
 
   useEffect(() => {
     axios.get("https://api.coingecko.com/api/v3/coins/markets", {
         params:{
             vs_currency: "usd",
             order: "market_cap_desc",
-            per_page: 10,
+            per_page: 500,
             page: pagina,
         },
     })
@@ -30,11 +31,19 @@ const Dashboard = () =>{
     })
   }, [])
 
+const filtrados = dados.filter((p) =>
+    p.name.toLowerCase().includes(buscar.toLocaleLowerCase())
+)
+
+useEffect (() =>{
+},[pagina])
+
 
     return(
         <>
+        <input type="text" name="buscar" value={buscar} onChange={(e)=>setBuscar(e.target.value)}/>
         <ul>
-            {dados.map((item: any) => (
+            {filtrados.map((item: any) => (
                 <li key={item.id}>
                     <img src={item.image} alt={item.name} width={24} height={24} />
                     {item.name} - ${item.current_price}                  
