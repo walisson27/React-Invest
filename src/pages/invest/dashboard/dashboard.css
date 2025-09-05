@@ -41,3 +41,15 @@
   font-weight: 700;
   color: #0070f3; 
 }
+
+body{
+    min-height: 100vh;
+    background-image: url("../../../../public//Img/dashboard.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+body.cripto {
+  background-image: none;
+  background-color: #002046;
+}
