@@ -11,7 +11,6 @@ import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
 import { DraftMode } from "next/dist/client/components/draft-mode"
 import Navbar from "./navbar/Navbar"
-import Payments from "../payments/Payments"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 

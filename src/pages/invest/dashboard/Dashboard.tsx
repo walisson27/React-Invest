@@ -21,7 +21,7 @@ const Dashboard = () =>{
   const [buscar, setBuscar] = useState("")
   const [abriCripto, setAbrirCripto] = useState(false)
   const [modalCripto, setModalCripto] = useState(false)
-  const [selectItem, setSelectItem] = useState<Moeda | null>(null)
+  const [selectItem, setSelectItem] = useState<Moeda | null >(null)
 
   useEffect(() => {
     axios.get("https://api.coingecko.com/api/v3/coins/markets", {
@@ -54,16 +54,12 @@ useEffect (() =>{
 },[abriCripto])
 
 
-const buttonItem = (item:Moeda) =>{
-    setSelectItem(item)
-    setModalCripto(true)
-}
+const buttonItem = (item: Moeda) => {
+  setSelectItem(item);
+  setModalCripto(true);
+};
 
-  const closeModal = () => {
-    setSelectItem(null);
-    setModalCripto(false);
-}
-
+console.log(modalCripto)
     return(
         <>
     <nav className="nav-invest">
@@ -84,11 +80,11 @@ const buttonItem = (item:Moeda) =>{
             </li>
             ))}
         </ul>
-        {modalCripto && selectItem &&(
+        {modalCripto && selectItem && (
         <div className="modal-overlay">
           <div className="modal-content">
-            {selectItem.name}
-            <button onClick={()=>closeModal()}>Fechar</button>
+            {selectItem.name} {selectItem.current_price}
+            <button onClick={()=>setModalCripto(false)}>Fechar</button>
           </div>
         </div>
       )}
