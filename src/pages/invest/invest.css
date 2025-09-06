@@ -99,7 +99,9 @@ aside{
     justify-content: center;
     width: 100%;
 }
-
+.h2-invest{
+  color: white;
+}
 .current-invest{
     display: flex;
     flex-direction: column;
@@ -124,8 +126,6 @@ aside{
   margin: auto;
 }
 
-.grafico-pizza{
-}
 
 aside {
   background: #fff;

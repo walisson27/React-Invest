@@ -2,15 +2,13 @@ import {  useState } from "react"
 import "../../../reset.css"
 import "./invest.css"
 import "./Styles/button.css"
-import "../invest/navbar/Navbar.css"
+import "../../componentes/navbar/navbar.css"
 import Link from "next/link"
 import { DarkModeProvider } from "@/Contexte/Context"
 import ModeDark from "../Darkmode/ModeDark"
-import Grafico from "./graficos/Graficos";
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
 import { DraftMode } from "next/dist/client/components/draft-mode"
-import Navbar from "./navbar/Navbar"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
@@ -72,7 +70,7 @@ const SomaTotal = salario - total
         <div className="modal-overlay">
           <div className="modal-content">
             <h2>Cadastro de Categoria</h2>
-            <input type="" placeholder="Salario" value={salario} onChange={(e) => setSalario(Number(e.target.value))} />
+            <input placeholder="Salario" value={salario} onChange={(e) => setSalario(Number(e.target.value))} />
             <input
               placeholder="Nome da Categoria"
               type="text"
@@ -119,14 +117,57 @@ const SomaTotal = salario - total
           <section className="categories-invest">
             <h2 className="h2-invest">Gráfico em Pizza</h2>
             <div className="grafico-wrapper">
-               <Pie className="grafico-pizza" data={data} options={{ responsive: true, maintainAspectRatio: false,  }} />
+              <Pie
+                  data={data}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        labels: {
+                          color: "#ffffff", // cor dos textos da legenda
+                        },
+                      },
+                    },
+                  }}
+                />
             </div>
-           
           </section>
             <section className="current-invest">
             <h2 className="h2-invest">Gráfico em Barras</h2>
             <div className="grafico-wrapper">
-              <Bar data={data} options={{ responsive: true, maintainAspectRatio: false }} />
+              <Bar
+                    data={data}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                        legend: {
+                          labels: {
+                            color: "#ffffff", 
+                          },
+                        },
+                      },
+                      scales: {
+                        x: {
+                          ticks: {
+                            color: "#ffffff", 
+                          },
+                          grid: {
+                            color: "rgba(255,255,255,0.2)", 
+                          },
+                        },
+                        y: {
+                          ticks: {
+                            color: "#ffffff", 
+                          },
+                          grid: {
+                            color: "rgba(255,255,255,0.2)", 
+                          },
+                        },
+                      },
+                    }}
+                  />
             </div>
           </section>
       </article>

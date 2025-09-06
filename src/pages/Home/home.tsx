@@ -1,26 +1,24 @@
 import "../Home/home.css"
-import { useRouter } from "next/router"
+import "../../componentes/footer/footer.css"
 import "../../../reset.css"
 import Link from "next/link"
 import { DarkModeProvider } from "@/Contexte/Context"
-import "../../pages/invest/navbar/navbar.css"
+import "../../componentes/navbar/navbar.css"
 import ModeDark from "../Darkmode/ModeDark"
+import Footer from "@/componentes/footer/Footer"
+import { useEffect, useState } from "react"
+
 
 const Home = () => {
-    const router = useRouter()
+  const [news, setNews] = useState([])
 
-const sair = (e:any) =>{
-    e.preventDefault()
-      router.push('../Login-Pagina/Login')
-  };
-
-const fintench = (e:any) =>{
-  e.preventDefault()
-   router.push("../../")
-}
+  useEffect(() => {
+    fetch("../api/news")
+      .then(res => res.json())
+      .then(data => setNews(data.articles || []))
+  })
 
     return(
-        
     <DarkModeProvider>
     <nav className="nav-invest">
         <ul>
@@ -29,16 +27,15 @@ const fintench = (e:any) =>{
         </ul>
     </nav>
         <header className="header-home">
+    <div>
+      <h1>Últimas notícias de Tecnologia</h1>
+      <ul>
+
+        
+      </ul>
+    </div>
         </header>
-      <footer className="footer">
-        <div className="footer-container">
-        <p className="footer-text">© {new Date().getFullYear()} Todos os direitos reservados.</p>
-        <div className="footer-links">
-        <a href="#">Termos</a>
-        <a href="#">Privacidade</a>
-        </div>
-        </div>
-      </footer>
+        <Footer/>
       </DarkModeProvider>
     )
 }

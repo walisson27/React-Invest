@@ -1,19 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../navbar/Navbar.css"
+import "../../../componentes/navbar/navbar.css"
 import "../../../../reset.css"
 import "../dashboard/dashboard.css"
 import Link from "next/link";
-
-
 
 interface Moeda {
     id: string;
     name: string;
     image: string;
     current_price: number;
+    usd: number;
 }
-
 
 const Dashboard = () =>{
   const [dados, setDados] = useState<Moeda[]>([])
@@ -26,7 +24,7 @@ const Dashboard = () =>{
   useEffect(() => {
     axios.get("https://api.coingecko.com/api/v3/coins/markets", {
         params:{
-            vs_currency: "usd",
+            vs_currency: "brl",
             order: "market_cap_desc",
             per_page: 200,
             page: pagina,
@@ -45,13 +43,13 @@ const filtrados = dados.filter((p) =>
     p.name.toLowerCase().includes(buscar.toLocaleLowerCase())
 )
 
-useEffect (() =>{
+/*useEffect (() =>{
     if(abriCripto){
         document.body.classList.add("cripto")
     }else{
         document.body.classList.remove("cripto")
     }
-},[abriCripto])
+},[abriCripto])*/
 
 
 const buttonItem = (item: Moeda) => {
@@ -64,7 +62,7 @@ console.log(modalCripto)
         <>
     <nav className="nav-invest">
         <ul>
-          <li><input type="text" name="buscar" value={buscar} onChange={(e)=>setBuscar(e.target.value)}/></li>
+          <li><input type="text" placeholder="Buscar" name="buscar" value={buscar} onChange={(e)=>setBuscar(e.target.value)}/></li>
           <li><Link href="" onClick={() => setAbrirCripto(prev => !prev)}>{abriCripto ? "Cripto" : "Cripto"}</Link></li>
           <li><Link href="/invest/invest">Sair</Link></li>
         </ul>
@@ -75,24 +73,40 @@ console.log(modalCripto)
             {filtrados.map((item) => (
             <li key={item.id} onClick={() => buttonItem(item)}>
                 <img src={item.image} alt={item.name} width={24} height={24} />
-                {item.name} - ${item.current_price}
+                {item.name} - R${item.current_price}
                 
             </li>
             ))}
         </ul>
         {modalCripto && selectItem && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            {selectItem.name} {selectItem.current_price}
-            <button onClick={()=>setModalCripto(false)}>Fechar</button>
-          </div>
-        </div>
+         <div className="modal-overlay" onClick={() => setModalCripto(false)}>
+      <div
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()} // evita fechar clicando dentro
+      >
+        <h2>{selectItem.name}</h2>
+        <img src={selectItem.image} alt={selectItem.name} width={92} height={94} />
+        <p>
+            Data: <strong>{selectItem.last_updated}</strong>
+        </p>
+        <p>
+          💰 Preço atual: <strong>${selectItem.current_price}</strong>
+        </p>
+        <p>
+          📊 Volume total: <strong>{selectItem.total_volume}</strong>
+        </p>
+        
+        <button onClick={() => setModalCripto(false)} className="modal-close">
+          Fechar
+        </button>
+      </div>
+    </div>
       )}
         </div>
         )}
         {/*<button onClick={() => setPagina((p) => Math.max(1, p - 1))}>Anterior</button>
         <button onClick={() => setPagina((p) =>  p + 1)}>Próxima</button>*/}
-        </>
+    </>
     )
 }
 
