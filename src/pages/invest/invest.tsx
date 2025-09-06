@@ -1,6 +1,7 @@
 import {  useState } from "react"
 import "../../../reset.css"
 import "./invest.css"
+import "../../componentes/navbar/navbar.css"
 import "./Styles/button.css"
 import "../../componentes/navbar/navbar.css"
 import Link from "next/link"

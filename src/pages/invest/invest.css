@@ -1,26 +1,3 @@
-.nav-invest{
-    width: 100%;
-    height: 47px;
-    padding-top: 10px;
-    background-color: blueviolet;
-}
-
-.nav-invest ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    color: white;
-    font-size:large;
-}
-
-.nav-invest li{
-  cursor: pointer;
-  color: white;
-}
-
-
--------------------------------------------------
-
 aside{
     display: flex;
     flex-direction: column;

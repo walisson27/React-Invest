@@ -4,7 +4,6 @@ import "../../../componentes/navbar/navbar.css"
 import "../../../../reset.css"
 import "../dashboard/dashboard.css"
 import Link from "next/link";
-
 interface Moeda {
     id: string;
     name: string;
@@ -21,23 +20,19 @@ const Dashboard = () =>{
   const [modalCripto, setModalCripto] = useState(false)
   const [selectItem, setSelectItem] = useState<Moeda | null >(null)
 
-  useEffect(() => {
-    axios.get("https://api.coingecko.com/api/v3/coins/markets", {
-        params:{
-            vs_currency: "brl",
-            order: "market_cap_desc",
-            per_page: 200,
-            page: pagina,
-        },
-    })
-    .then((resposta) => {
-        setDados(resposta.data)
-    })
-    .catch((error) => {
-        console.log("Erro ao buscar dados:", error)
-    })
-  }, [])
 
+useEffect(() => {
+  axios.get("/api/cripto", {
+    params: {
+      vs_currency: "brl",
+      order: "market_cap_desc",
+      per_page: 200,
+      page: pagina,
+    },
+  })
+  .then((resposta) => setDados(resposta.data))
+  .catch((error) => console.log("Erro ao buscar dados:", error));
+}, [pagina]);
 
 const filtrados = dados.filter((p) =>
     p.name.toLowerCase().includes(buscar.toLocaleLowerCase())
