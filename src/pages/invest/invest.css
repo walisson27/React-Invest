@@ -17,6 +17,8 @@
   cursor: pointer;
   color: white;
 }
+
+
 -------------------------------------------------
 
 aside{
@@ -117,9 +119,12 @@ aside{
 
 .grafico-wrapper {
   width: 100%;
-  max-width: 800px;  /* limite opcional */
-  height: 800px;     /* altura ajustável */
-  margin: auto;      /* centraliza */
+  max-width: 800px;  
+  height: 800px;     
+  margin: auto;
+}
+
+.grafico-pizza{
 }
 
 aside {

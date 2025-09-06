@@ -119,7 +119,7 @@ const SomaTotal = salario - total
           <section className="categories-invest">
             <h2 className="h2-invest">Gráfico em Pizza</h2>
             <div className="grafico-wrapper">
-               <Pie data={data} options={{ responsive: true, maintainAspectRatio: false,  }} />
+               <Pie className="grafico-pizza" data={data} options={{ responsive: true, maintainAspectRatio: false,  }} />
             </div>
            
           </section>

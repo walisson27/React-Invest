@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import "../../../reset.css"
 import Link from "next/link"
 import { DarkModeProvider } from "@/Contexte/Context"
+import "../../pages/invest/navbar/navbar.css"
 import ModeDark from "../Darkmode/ModeDark"
 
 const Home = () => {
@@ -20,18 +21,24 @@ const fintench = (e:any) =>{
 
     return(
         
-        <DarkModeProvider>
-      <div className="full-page">   
-        <nav className="nav-home">
-          <h1 className="website">WebSite</h1>
-          <ModeDark/> 
-            <Link href="/Home/home">Home</Link>
-            <Link href="/invest/invest">Invest</Link>
-            <Link href="/">Sair</Link>
-        </nav>
+    <DarkModeProvider>
+    <nav className="nav-invest">
+        <ul>
+          <li><Link href={"/invest/invest"}>Finanças</Link></li>
+          <li><Link href={"/"}>Sair</Link></li>
+        </ul>
+    </nav>
         <header className="header-home">
         </header>
-      </div> 
+      <footer className="footer">
+        <div className="footer-container">
+        <p className="footer-text">© {new Date().getFullYear()} Todos os direitos reservados.</p>
+        <div className="footer-links">
+        <a href="#">Termos</a>
+        <a href="#">Privacidade</a>
+        </div>
+        </div>
+      </footer>
       </DarkModeProvider>
     )
 }

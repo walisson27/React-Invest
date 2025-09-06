@@ -44,7 +44,7 @@
 
 body{
     min-height: 100vh;
-    background-image: url("../../../../public//Img/dashboard.jpeg");
+    background-color: #002046;
     background-size: cover;
     background-position: center;
 }
@@ -67,7 +67,7 @@ body.cripto {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999; /
+  z-index: 9999; 
 }
 
 .modal-content {
