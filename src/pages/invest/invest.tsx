@@ -1,4 +1,4 @@
-import {  useState } from "react"
+import {  useEffect, useState } from "react"
 import "../../../reset.css"
 import "./invest.css"
 import "../../componentes/navbar/navbar.css"
@@ -25,6 +25,27 @@ const Invest = () => {
   const [openModal, setOpenModal] = useState(false)
   const [aside, setAside] = useState(false)
   const [salario, setSalario] = useState<number>(0)
+
+  useEffect(() => {
+    const dadosSalvos = localStorage.getItem("categorias")
+    if(dadosSalvos) {
+      setCategorias(JSON.parse(dadosSalvos))
+    }
+
+    const salarioSalvo = localStorage.getItem("salario")
+    if(salarioSalvo) {
+      setSalario(Number(salarioSalvo))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("categorias",JSON.stringify(categorias))
+  }, [categorias])
+
+  useEffect(() =>{
+    localStorage.setItem("salario",String(salario))
+  }, [salario])
+
 
   const adicionarCategoria = () => {
     if (nome.trim() !== "" && valor !== "") {
