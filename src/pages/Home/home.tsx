@@ -8,9 +8,15 @@ import ModeDark from "../Darkmode/ModeDark"
 import Footer from "@/componentes/footer/Footer"
 import { useEffect, useState } from "react"
 
+interface types{
+  title : string,
+  description: string,
+  image: string,
+  name: string
+}
 
 const Home = () => {
-  const [news, setNews] = useState([])
+  const [news, setNews] = useState<types[]>([])
 
  useEffect(() => {
   fetch("../api/news")
