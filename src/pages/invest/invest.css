@@ -75,6 +75,7 @@ aside{
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    background-color: #698197;
 }
 .h2-invest{
   color: white;
