@@ -7,7 +7,6 @@ import "../../componentes/navbar/navbar.css"
 import ModeDark from "../Darkmode/ModeDark"
 import Footer from "@/componentes/footer/Footer"
 import { useEffect, useState } from "react"
-import axios from "axios"
 
 
 const Home = () => {
@@ -34,11 +33,11 @@ const Home = () => {
         <header className="header-home">
     <div>
       <h1>Últimas notícias de Tecnologia</h1>
-      <ul>
+      <ul className="ul-news">
         {news.map((dados,index) =>(
-          <li key={index}>
+          <li className="li-news" key={index}>
             <p>{dados.title}</p>
-            <img src={dados.image} alt={dados.name} width={47} height={47} />
+            <img className="img-news" src={dados.image} alt={dados.name} width={400} height={200} />
             <strong>{dados.description}</strong> 
           </li>
         ))}
