@@ -46,6 +46,20 @@ const Invest = () => {
     localStorage.setItem("salario",String(salario))
   }, [salario])
 
+  const limpar = () =>{
+    localStorage.clear();
+    console.log("hello")
+
+  }
+
+  const LimpaDado = (id) => {
+    const novaLista = categorias.filter((algo,indiceAtual)=> indiceAtual !== id
+        );
+    setCategorias(novaLista)
+    localStorage.setItem("categorias",JSON.stringify(novaLista))
+
+   console.log("hello") 
+ }
 
   const adicionarCategoria = () => {
     if (nome.trim() !== "" && valor !== "") {
@@ -124,6 +138,7 @@ const SomaTotal = salario - total
               <li key={index} className="categoria-item">
                 <span className="categoria-nome">{c.nome}</span>
                 <span className="categoria-valor">R$ {c.valor}</span>
+                <button onClick={() => LimpaDado(index)}> teste</button>
               </li>
             ))}
           </ul>
@@ -132,6 +147,9 @@ const SomaTotal = salario - total
           </div>
           <div className="total-wrapper">
             <strong>Salario:</strong> <span>R$ {SomaTotal}</span>
+          </div>
+          <div>
+            <button onClick={()=>limpar()}>Limpar Dados</button>
           </div>
         </aside>  
           )}
