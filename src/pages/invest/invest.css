@@ -1,5 +1,4 @@
 aside{
-    display: flex;
     flex-direction: column;
     width: 30%;
     height: 100vh;
@@ -12,6 +11,7 @@ aside{
   width: 280px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   font-family: sans-serif;
+  display: flex;
 }
 
 .aside-titulo {
@@ -32,6 +32,7 @@ aside{
 .categoria-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 8px 12px;
   margin-bottom: 8px;
   border-radius: 8px;
@@ -48,6 +49,7 @@ aside{
 }
 
 .categoria-valor {
+  display: flex;
   font-weight: bold;
   color: #007bff;
 }

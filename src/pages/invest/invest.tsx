@@ -3,6 +3,7 @@ import "../../../reset.css"
 import "./invest.css"
 import "../../componentes/navbar/navbar.css"
 import "./Styles/button.css"
+import "../../GlobalCss/button.css"
 import "../../componentes/navbar/navbar.css"
 import Link from "next/link"
 import { DarkModeProvider } from "@/Contexte/Context"
@@ -138,7 +139,7 @@ const SomaTotal = salario - total
               <li key={index} className="categoria-item">
                 <span className="categoria-nome">{c.nome}</span>
                 <span className="categoria-valor">R$ {c.valor}</span>
-                <button onClick={() => LimpaDado(index)}> teste</button>
+                <button className="btn btn-sm" onClick={() => LimpaDado(index)}>Excluir</button>
               </li>
             ))}
           </ul>
@@ -149,7 +150,7 @@ const SomaTotal = salario - total
             <strong>Salario:</strong> <span>R$ {SomaTotal}</span>
           </div>
           <div>
-            <button onClick={()=>limpar()}>Limpar Dados</button>
+            <button className="btn btn-primary" onClick={()=>limpar()}>Limpar Dados</button>
           </div>
         </aside>  
           )}
