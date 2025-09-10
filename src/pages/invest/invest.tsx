@@ -98,7 +98,7 @@ const SomaTotal = salario - total
           <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
           <li><Link href={"./dashboard/Dashboard"}>Dashboard</Link></li>
           <li><Link href={"../payments/Payments"}>Payments</Link></li>
-          <li><Link href={"/savings"}>Savings</Link></li>
+          <li><Link href={"../savings/savings"}>Savings</Link></li>
           <li><Link href={"/Home/home"}>Sair</Link></li>
         </ul>
     </nav>
