@@ -16,15 +16,12 @@ interface types{
 }
 
 const Home = () => {
-  const [news, setNews] = useState<types[]>([])
+  const [dados, setDados] = useState<types[]>([])
 
  useEffect(() => {
-  fetch("../api/news")
-    .then(res => {
-      if (!res.ok) throw new Error("Falha ao carregar notícias");
-      return res.json();
-    })
-    .then(data => setNews(data.articles || []))
+  fetch("../api/bolsa")
+    .then(res => res.json())
+    .then(data => setDados(data)) 
     .catch(err => console.error("Erro ao buscar notícias:", err));
 }, []);
 
@@ -39,16 +36,17 @@ const Home = () => {
         <header className="header-home">
     <div>
       <h1>Últimas notícias de Tecnologia</h1>
-      <ul className="ul-news">
-        {news.map((dados,index) =>(
-          <li className="li-news" key={index}>
-            <p>{dados.title}</p>
-            <img className="img-news" src={dados.image} alt={dados.name} width={400} height={200} />
-            <strong>{dados.description}</strong> 
-          </li>
-        ))}
-        
-      </ul>
+        <ul className="ul-news">
+          {dados.map((bolsa, index) => (
+            <li className="li-news" key={index}>
+              <div className="stock-card">
+                <h2>{bolsa.shortName} ({bolsa.symbol})</h2>
+                <p><strong>Preço:</strong> R$ {bolsa.regularMarketPrice}</p>
+                <p><strong>Moeda:</strong> {bolsa.currency}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
     </div>
         </header>
         <Footer/>
