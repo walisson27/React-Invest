@@ -97,7 +97,6 @@ const SomaTotal = salario - total
         <ul>
           <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
           <li><Link href={"./dashboard/Dashboard"}>Dashboard</Link></li>
-          <li><Link href={"../payments/Payments"}>Payments</Link></li>
           <li><Link href={"../savings/savings"}>Savings</Link></li>
           <li><Link href={"/Home/home"}>Sair</Link></li>
         </ul>
@@ -150,7 +149,6 @@ const SomaTotal = salario - total
             <strong>Salario:</strong> <span>R$ {SomaTotal}</span>
           </div>
           <div>
-            <button className="btn btn-primary" onClick={()=>limpar()}>Limpar Dados</button>
           </div>
         </aside>  
           )}
