@@ -35,7 +35,6 @@ const Home = () => {
     </nav>
         <header className="header-home">
     <div>
-      <h1>Últimas notícias de Tecnologia</h1>
         <ul className="ul-news">
           {dados.map((bolsa, index) => (
             <li className="li-news" key={index}>
