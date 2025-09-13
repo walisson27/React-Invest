@@ -7,42 +7,43 @@ h2 {
 }
 
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem auto;
-  max-width: 500px;      
-  background: #ffffff;
-  border-radius: 16px;   
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
-
-li {
-  padding: 16px 20px;    
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 1.125rem;   
-  color: #374151;
+.accordion-savings {
+  max-width: 600px;
+  margin: 2rem auto;
   display: flex;
-  align-items: center;
-  transition: all 0.25s ease;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-li:last-child {
-  border-bottom: none;
+.accordion-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-li:hover {
-  background: #f3f4f6;   
-  transform: translateX(6px);
+.accordion-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  color: #374151;
+  list-style: none;
 }
 
-li::before {
-  content: "•";
-  color: #6366f1;       
-  font-size: 1.5rem;   
-  font-weight: bold;
-  display: inline-block;
-  width: 1.5rem;
-  margin-right: 0.75rem;
+.accordion-title::-webkit-details-marker {
+  display: none; 
+}
+
+.accordion-content {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  color: #4b5563;
+  border-top: 1px solid #e5e7eb;
+}
+
+.accordion-item[open] {
+  background: #f9fafb;
+  transform: scale(1.02);
 }
