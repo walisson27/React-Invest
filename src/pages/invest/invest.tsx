@@ -53,7 +53,7 @@ const Invest = () => {
 
   }
 
-  const LimpaDado = (id) => {
+  const LimpaDado = (id:number) => {
     const novaLista = categorias.filter((algo,indiceAtual)=> indiceAtual !== id
         );
     setCategorias(novaLista)
@@ -164,7 +164,7 @@ const SomaTotal = salario - total
                     plugins: {
                       legend: {
                         labels: {
-                          color: "#ffffff", // cor dos textos da legenda
+                          color: "#ffffff", 
                         },
                       },
                     },
