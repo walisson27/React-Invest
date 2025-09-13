@@ -7,43 +7,52 @@ h2 {
 }
 
 
-.accordion-savings {
-  max-width: 600px;
+.savings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
   margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.savings-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.savings-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.savings-nome {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.savings-itens {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
-.accordion-item {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.accordion-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 1rem 1.2rem;
-  cursor: pointer;
-  color: #374151;
-  list-style: none;
-}
-
-.accordion-title::-webkit-details-marker {
-  display: none; 
-}
-
-.accordion-content {
-  padding: 0.8rem 1.2rem;
-  font-size: 1rem;
-  color: #4b5563;
-  border-top: 1px solid #e5e7eb;
-}
-
-.accordion-item[open] {
+.savings-item {
   background: #f9fafb;
-  transform: scale(1.02);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.savings-item p {
+  margin: 0.3rem 0;
+  color: #374151;
 }

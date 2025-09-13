@@ -33,18 +33,13 @@ const savings = () => {
             </ul>
         </nav>
         <h2>Dados Salvos</h2>
-        <div className="accordion-savings">
-        {savings.map((categorias, id) => (
-            <details className="accordion-item" key={id}>
-            <summary className="accordion-title">
-                {categorias.nome}
-            </summary>
-            <div className="accordion-content">
-                <p>{categorias.nome}</p>
-                <p>Descrição: {categorias.descricao}</p>
-                <p>Valor: {categorias.valor}</p>
+        <div className="savings-container">
+        {savings.map((usuario, id) => (
+            <div className="savings-card" key={id}>
+            <h3 className="savings-nome">{usuario.nome}</h3>
+            <p><strong>Descrição:</strong> {usuario.descricao}</p>
+            <p><strong>Valor:</strong> R$ {usuario.valor}</p>
             </div>
-            </details>
         ))}
         </div>
         <ul>
