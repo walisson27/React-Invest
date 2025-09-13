@@ -49,12 +49,10 @@ body{
     background-position: center;
 }
 
-
-/* ModalCripto.css */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* fundo escuro translúcido */
+  background: rgba(0, 0, 0, 0.6); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +84,7 @@ body{
 .modal-close {
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
-  background: #3b82f6; /* azul moderno */
+  background: #3b82f6;
   color: white;
   font-weight: 600;
   border: none;
@@ -96,7 +94,7 @@ body{
 }
 
 .modal-close:hover {
-  background: #2563eb; /* azul mais escuro no hover */
+  background: #2563eb;
 }
 
 

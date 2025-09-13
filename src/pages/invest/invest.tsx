@@ -11,7 +11,6 @@ import ModeDark from "../Darkmode/ModeDark"
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
 import { DraftMode } from "next/dist/client/components/draft-mode"
-
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
 interface Categoria {
@@ -98,7 +97,7 @@ const SomaTotal = salario - total
           <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
           <li><Link href={"./dashboard/Dashboard"}>Dashboard</Link></li>
           <li><Link href={"../savings/savings"}>Savings</Link></li>
-          <li><Link href={"/Home/home"}>Sair</Link></li>
+          <li><Link href={"../Login-Pagina/Login"}>Sair</Link></li>
         </ul>
     </nav>
 

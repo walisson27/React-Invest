@@ -1,7 +1,6 @@
-"use client"; // Adicione esta linha no topo do arquivo
 import { useState } from "react";
 import Link from "next/link";
-import "../Style-Login/login.css"
+import "./login.css"
 import { useRouter } from "next/router";
 
 interface cadastroUsuario {
@@ -25,7 +24,7 @@ const Logi = () => {
     if(cadastradoUsuario) {
       localStorage.setItem("Usuario Logado", JSON.stringify(cadastradoUsuario))
       alert("Login Realizado com Sucesso")
-      router.push("../Home/home")
+      router.push("/invest/invest")
     }else{
       alert("Email ou Senha Inválidos")
     }
