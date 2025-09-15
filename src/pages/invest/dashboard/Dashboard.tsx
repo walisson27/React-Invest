@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../../navbar/navbar.css"
-import "../../GlobalCss/reset.css"
 import "../dashboard/dashboard.css"
 import Link from "next/link";
 interface Moeda {

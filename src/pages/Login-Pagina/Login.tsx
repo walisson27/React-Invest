@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import "./login.css"
-import "../GlobalCss/reset.css"
+//import "../GlobalCss/reset.css"
 import { useRouter } from "next/router";
 
 interface cadastroUsuario {
