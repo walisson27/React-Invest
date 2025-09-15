@@ -10,11 +10,17 @@ interface Moeda {
     image: string;
     current_price: number;
     usd: number;
+    last_updated:string;
+    total_volume:number;
+    shortName: string
+    symbol: string
+    regularMarketPrice: string
+    currency: number
 }
 
 const Dashboard = () =>{
   const [dados, setDados] = useState<Moeda[]>([])
-  const [bolsa, setBolsa] = useState([])
+  const [bolsa, setBolsa] = useState<Moeda[]>([])
   const [pagina, setPagina] = useState(1)
   const [buscar, setBuscar] = useState("")
   const [abriCripto, setAbrirCripto] = useState(false)
@@ -123,7 +129,7 @@ console.log(modalCripto)
           {bolsa.map((bolsa, index) => (
             <li className="li-news" key={index}>
               <div className="stock-card">
-                <h2>{bolsa.shortName} ({bolsa.symbol})</h2>
+                <h2>{bolsa.shortName} {bolsa.symbol}</h2>
                 <p><strong>Preço:</strong> R$ {bolsa.regularMarketPrice}</p>
                 <p><strong>Moeda:</strong> {bolsa.currency}</p>
               </div>

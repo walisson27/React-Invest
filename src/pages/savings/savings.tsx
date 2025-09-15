@@ -3,15 +3,14 @@ import "../../componentes/navbar/navbar.css"
 import "./savings.css"
 import Link from "next/link"
 
-interface types{
+interface Types{
     nome: string
     descricao: string
     valor: number
 }
 
-const savings = () => {
-    const [savings, setSavings] = useState<types[]>([])
-    const [dados, setDados] = useState([])
+const Savings = () => {
+    const [savings, setSavings] = useState<Types[]>([])
     
     useEffect(() =>{
     const dados = localStorage.getItem("categorias")
@@ -42,15 +41,8 @@ const savings = () => {
             </div>
         ))}
         </div>
-        <ul>
-            {dados.map((categorias,id) =>(
-                <li key={id}>
-                    {categorias.nome}
-                </li>
-            ))}
-        </ul>
         </>
     )
 }
 
-export default savings
+export default Savings

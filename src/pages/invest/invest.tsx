@@ -6,11 +6,8 @@ import "./Styles/button.css"
 import "../../GlobalCss/button.css"
 import "../../componentes/navbar/navbar.css"
 import Link from "next/link"
-import { DarkModeProvider } from "@/Contexte/Context"
-import ModeDark from "../Darkmode/ModeDark"
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
-import { DraftMode } from "next/dist/client/components/draft-mode"
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
 interface Categoria {
