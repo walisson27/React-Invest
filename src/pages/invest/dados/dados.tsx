@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./dados.css"
+//import "./dados.css"
 import Link from "next/link";
 
 interface ProdutoProps{

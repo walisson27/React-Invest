@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import "../../pages/Login-Pagina/login.css"
+//import "../../pages/Login-Pagina/login.css"
 
 interface cadastroUsuario {
   email : string,

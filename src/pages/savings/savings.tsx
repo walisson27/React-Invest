@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import "../../pages/navbar/navbar.css"
-import "./savings.css"
+//import "../../pages/navbar/navbar.css"
+//import "./savings.css"
 import Link from "next/link"
 
 interface Types{
