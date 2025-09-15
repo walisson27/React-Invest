@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../../../componentes/navbar/navbar.css"
+import "../../navbar/navbar.css"
 import "../../GlobalCss/reset.css"
 import "../dashboard/dashboard.css"
 import Link from "next/link";
