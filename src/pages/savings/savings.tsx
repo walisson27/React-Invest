@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "../../componentes/navbar/navbar.css"
+import "../../pages/navbar/navbar.css"
 import "./savings.css"
 import Link from "next/link"
 

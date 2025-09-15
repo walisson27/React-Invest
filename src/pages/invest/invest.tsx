@@ -1,9 +1,9 @@
 import {  useEffect, useState } from "react"
-import "../../../reset.css"
+import "../GlobalCss/reset.css"
 import "./invest.css"
 import "../../componentes/navbar/navbar.css"
 import "./Styles/button.css"
-import "../../componentes/GlobalCss/button.css"
+import "../GlobalCss/button.css"
 import "../../componentes/navbar/navbar.css"
 import Link from "next/link"
 import { Bar, Pie } from "react-chartjs-2";
