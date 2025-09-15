@@ -1,7 +1,4 @@
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../reset.css"
-import "./index.css";
 const App = () => {
   const [mostrarLista, setMostrarLista] = useState(false);
 
