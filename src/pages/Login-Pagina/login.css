@@ -57,7 +57,7 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
 } 
 
-button {
+.button-login {
   background-color: #4f46e5; 
   color: white;
   padding: 12px 20px;
@@ -68,6 +68,7 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   width: 247px;
+  margin-top: 10px;
 }
 
 button:hover {
@@ -80,10 +81,6 @@ button:active {
   transform: scale(0.95); 
 }
 
-
-.button-cadastro{
-  margin-bottom: 10px;
-}
     
 .link-cadatro{
     color: white;

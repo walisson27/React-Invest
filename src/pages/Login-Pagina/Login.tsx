@@ -51,7 +51,7 @@ const Logi = () => {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
-        <button onClick={login}>Login</button>
+        <button className="button-login" onClick={login}>Login</button>
         <Link className="link-cadatro" href="../cadastro/Cadastro">
           Não tem conta? Cadastra-se
         </Link>

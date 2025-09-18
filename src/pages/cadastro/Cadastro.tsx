@@ -60,8 +60,8 @@ const Cadastro = () => {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
-        <button onClick={cadastro}>Cadastro</button>
-        <button onClick={login}>Login</button>
+        <button className="button-login" onClick={cadastro}>Cadastro</button>
+        <button className="button-login" onClick={login}>Login</button>
       </section>
     </div>
     </>
