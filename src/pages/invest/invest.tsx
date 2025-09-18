@@ -82,6 +82,44 @@ const Invest = () => {
     ],
   };
 
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: "#fff",
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context: any) {
+            const dataset = context.dataset;
+            const total = dataset.data.reduce((a: number, b: number) => a + b, 0);
+            const value = dataset.data[context.dataIndex];
+            const percentage = ((value / total) * 100).toFixed(1) + "%";
+            return `${context.label}: ${value} (${percentage})`;
+          },
+        },
+      },
+      datalabels: {
+        color: "#fff",
+        font: {
+          weight: "bold" as const,
+          size: 14,
+        },
+        formatter: (value: number, context: any) => {
+          const dataset = context.chart.data.datasets[0].data;
+          const total = dataset.reduce((a: number, b: number) => a + b, 0);
+          const percentage = ((value / total) * 100).toFixed(1) + "%";
+          return `${value} (${percentage})`; 
+        },
+      },
+    },
+  };
+  
+  
+
 const total = categorias.map(c => c.valor).reduce((a, b) => a + b, 0)
 
 const SomaTotal = salario - total
@@ -91,6 +129,7 @@ const SomaTotal = salario - total
       <nav className="nav-invest">
         <ul>
           <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
+          <li><Link href="../Porcentagem/Porcentagem">Porcentagem</Link></li>
           <li><Link href={"./dashboard/Dashboard"}>Dashboard</Link></li>
           <li><Link href={"../savings/savings"}>Savings</Link></li>
           <li><Link href={"../Login-Pagina/Login"}>Sair</Link></li>
@@ -153,17 +192,7 @@ const SomaTotal = salario - total
             <div className="grafico-wrapper">
               <Pie
                   data={data}
-                  options={{
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                      legend: {
-                        labels: {
-                          color: "#ffffff", 
-                        },
-                      },
-                    },
-                  }}
+                  options={options}
                 />
             </div>
           </section>
