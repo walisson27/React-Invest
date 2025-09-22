@@ -52,9 +52,7 @@ const Invest = () => {
     const novaLista = categorias.filter((algo,indiceAtual)=> indiceAtual !== id
         );
     setCategorias(novaLista)
-    localStorage.setItem("categorias",JSON.stringify(novaLista))
-
-   console.log("hello") 
+    localStorage.setItem("categorias",JSON.stringify(novaLista)) 
  }
 
   const adicionarCategoria = () => {
