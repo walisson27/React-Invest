@@ -18,11 +18,19 @@ const Porcentagem = () => {
     if(dadosItens) {
       setItens(JSON.parse(dadosItens))
     }
+    const valorItem = localStorage.getItem("valor")
+    if(valorItem) {
+      setValor(Number(valorItem))
+    }
   },[])
 
   useEffect(() =>{
-    localStorage.setItem("itens",JSON.stringify(itens,))
-  },[itens])
+    localStorage.setItem("itens",JSON.stringify(itens))
+  },[itens,])
+
+  useEffect(() =>{
+    localStorage.setItem("valor",String(valor))
+  },[valor])
 
   // soma dos valores já usados
   const somaValores = itens.reduce((a, b) => a + b.valor, 0);
