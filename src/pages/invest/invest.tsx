@@ -21,6 +21,7 @@ const Invest = () => {
   const [openModal, setOpenModal] = useState(false)
   const [aside, setAside] = useState(false)
   const [salario, setSalario] = useState<number>(0)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const dadosSalvos = localStorage.getItem("categorias")
@@ -122,10 +123,15 @@ const total = categorias.map(c => c.valor).reduce((a, b) => a + b, 0)
 
 const SomaTotal = salario - total
 
+function toggleMenu() {
+  setIsOpen(!isOpen)
+  }
+
   return (
     <>
       <nav className="nav-invest">
-        <ul>
+          <button className="menu-toggle" onClick={toggleMenu}>☰</button>
+        <ul className={isOpen ? "active" : ""}>
           <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
           <li><Link href="../Porcentagem/Porcentagem">Porcentagem</Link></li>
           <li><Link href={"./dashboard/Dashboard"}>Dashboard</Link></li>

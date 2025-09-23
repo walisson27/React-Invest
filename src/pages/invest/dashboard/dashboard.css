@@ -98,7 +98,6 @@ body{
 }
 
 
-/* animações */
 @keyframes fadeIn {
   from {
     opacity: 0;
