@@ -9,6 +9,7 @@ import "../pages/invest/Styles/button.css"
 import "../pages/invest/invest.css"
 import "../pages/invest/dashboard/dashboard.css"
 import "../pages/Porcentagem/porcentagem.css"
+import "../componentes/footer/footer.css"
 //import "../pages/invest/dados/dados.css"
 
 export default function MyApp({ Component, pageProps }: AppProps) {
