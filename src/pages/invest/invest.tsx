@@ -105,7 +105,7 @@ const Invest = () => {
         color: "#fff",
         font: {
           weight: "bold" as const,
-          size: 14,
+          size: 18,
         },
         formatter: (value: number, context: any) => {
           const dataset = context.chart.data.datasets[0].data;

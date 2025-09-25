@@ -75,7 +75,7 @@ aside{
 .article-invest{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 100%;
     background-color: #698197;
 }
@@ -92,8 +92,8 @@ aside{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    height: 100px;
+    margin-top: 10px;
+    height: 500px;
     width: 100%;
 }
 
@@ -101,16 +101,15 @@ aside{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100px;
+    height: 300px;
     width: 100%;
-    margin-bottom: 97px;
+    margin-bottom: 0px;
 }
 
 .grafico-wrapper {
   width: 100%;
   max-width: 800px;  
-  height: 800px;     
-  margin: auto;
+  height: 600px;     
 }
 
 
@@ -322,7 +321,7 @@ aside h2 {
       display: flex;
       justify-content: flex-start;
       padding-top: 45px;
-      height: 800px;
+      height: 1000px;
     }
     .categories-invest{
       height: 380px;
