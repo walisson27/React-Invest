@@ -96,7 +96,7 @@ const Porcentagem = () => {
     <div className="porcentagem">
       <nav className="nav-invest">
         <ul className="active">
-          <li><Link href={"../Login-Pagina/Login"}>Sair</Link></li>
+          <li><Link href={"../invest/invest"}>Sair</Link></li>
         </ul>
     </nav>
     <div style={{ width: "420px", margin: "20px auto" }}>
