@@ -93,10 +93,10 @@ const Porcentagem = () => {
  }
 
   return (
-    <>
-    <nav className="nav-invest">
-        <ul>
-          <li><Link href={"../invest/invest"}>Sair</Link></li>
+    <div className="porcentagem">
+      <nav className="nav-invest">
+        <ul className="active">
+          <li><Link href={"../Login-Pagina/Login"}>Sair</Link></li>
         </ul>
     </nav>
     <div style={{ width: "420px", margin: "20px auto" }}>
@@ -144,7 +144,7 @@ const Porcentagem = () => {
         ))}
       </ul>
     </div>
-    </>
+   </div>
   );
 };
 

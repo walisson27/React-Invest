@@ -52,6 +52,7 @@
 
   .nav-invest ul.active {
     display: flex; 
+    width: 100%;
   }
   .nav-invest li{
     padding: 5px;

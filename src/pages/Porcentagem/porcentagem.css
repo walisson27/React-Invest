@@ -71,3 +71,10 @@
     color: white;
     padding: 10px;
 }
+
+@media (max-width: 768px) {
+  .section-porcentagem{
+    width: 85%;
+  }
+
+}
