@@ -213,6 +213,7 @@ aside h2 {
 
 
 
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -302,4 +303,35 @@ aside h2 {
     opacity: 1;
     transform: scale(1);
   }
+}
+@media (max-width: 768px) {
+    .btn-animated{
+      display: flex;
+      height: 47px;
+      width: 70%;
+    }
+    .aside-categorias{
+      display: flex;
+    }
+    .header-invest{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-invest{
+      display: flex;
+      justify-content: flex-start;
+      padding-top: 45px;
+      height: 800px;
+    }
+    .categories-invest{
+      height: 380px;
+    }
+    .grafico-wrapper{
+      height: 500px;
+    }
+
+    .current-invest{
+      padding-top: 27px;
+    }
 }
