@@ -1,47 +1,55 @@
-<h1 align="center">
-    Finanças
-</h1>
+# 📊 React Invest
 
-<h4 align="center">
-  🚀 Sistema de Finanças Desenvolvido com ReactJS
-</h4>
+Aplicação desenvolvida para controle e visualização de investimentos com **gráficos interativos**.
 
-<p align="center">
-  <a href="https://react-invest-c29x.vercel.app/">Pagina do Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  
-</p>
+🔗 **Acesse o projeto online:** [React Invest](https://react-invest-c29x.vercel.app/)
 
-<br>
+---
 
-<p align="center">
-  <img src="">
-  <img src="">
-  <img src="">
-</p>
+## 🚀 Tecnologias
 
-## :rocket: Tecnologias
+Este projeto foi construído utilizando as seguintes tecnologias:
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+- ⚛️ [React](https://react.dev/)  
+- 📈 [Chart.js](https://www.chartjs.org/)  
+- 🌐 [Next.js](https://nextjs.org/)  
+- 🟦 [TypeScript](https://www.typescriptlang.org/)  
 
-- React
-- chart.js
-- Next
-- Typescript
+---
 
+## 📷 Demonstração
 
-<br>
+### 🔑 Tela de Login
+![Login](./Captura%20de%20tela%202025-09-27%20203926.png)
 
-## 💻 Instalação
+### 📊 Dashboard (Desktop)
+![Dashboard Desktop](./Captura%20de%20tela%202025-09-27%20204259.png)
 
-Para iniciar o **Projeto** utilize os comandos:
+### 📱 Dashboard (Mobile)
+![Dashboard Mobile](./Captura%20de%20tela%202025-09-27%20204341.png)
+
+---
+📌 Funcionalidades
+
+Login com autenticação utilizando localStorage
+
+Dashboard interativo
+
+Gráficos em Pizza e Barras usando Chart.js
+
+Layout responsivo para desktop e mobile
+
+## 📂 Como executar o projeto
 
 ```bash
+# Clone o repositório
+git clone https://github.com/walisson27/react-invest.git
+
+# Acesse a pasta do projeto
+cd react-invest
+
+# Instale as dependências
 npm install
-npm run start
-```
 
-Assim que o processo terminar, automaticamente será aberta no seu navegador a página `http://localhost:3000`.
-
-Feito por [Walisson Souza](https://github.com/walisson27)
+# Rode o projeto
+npm run dev
