@@ -20,13 +20,13 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 ## 📷 Demonstração
 
 ### 🔑 Tela de Login
-![Login](./Captura%20de%20tela%202025-09-27%20203926.png)
+![Login](https://github.com/user-attachments/assets/5371f439-f3d7-4861-bcda-be585a221249)
 
 ### 📊 Dashboard (Desktop)
-![Dashboard Desktop](./Captura%20de%20tela%202025-09-27%20204259.png)
+![Dashboard Desktop](https://github.com/user-attachments/assets/c83f75d5-f22c-4a26-8350-faec015e9575)
 
 ### 📱 Dashboard (Mobile)
-![Dashboard Mobile](./Captura%20de%20tela%202025-09-27%20204341.png)
+![Dashboard Mobile](https://github.com/user-attachments/assets/4f097f48-5125-403d-9889-3e912cdc3b17)
 
 ---
 📌 Funcionalidades
