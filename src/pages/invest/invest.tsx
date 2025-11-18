@@ -1,9 +1,4 @@
 import {  useEffect, useState } from "react"
-//import "../GlobalCss/reset.css"
-//import "./invest.css"
-//import "../navbar/navbar.css"
-//import "./Styles/button.css"
-//import "../GlobalCss/button.css"
 import Footer from "@/componentes/footer/Footer";
 import Link from "next/link"
 import { Bar, Pie } from "react-chartjs-2";
@@ -23,27 +18,33 @@ const Invest = () => {
   const [aside, setAside] = useState(false)
   const [salario, setSalario] = useState<number>(0)
   const [isOpen, setIsOpen] = useState(false)
+  const [graficoName, setGraficoName] = useState("")
+
+useEffect(() => {
+    const dadosSalvos = localStorage.getItem("categorias");
+    if (dadosSalvos) setCategorias(JSON.parse(dadosSalvos));
+
+    const salarioSalvo = localStorage.getItem("salario");
+    if (salarioSalvo) setSalario(Number(salarioSalvo));
+
+    const graficoSalvo = localStorage.getItem("graficoName");
+    if (graficoSalvo) setGraficoName(JSON.parse(graficoSalvo));
+  }, []);
+
 
   useEffect(() => {
-    const dadosSalvos = localStorage.getItem("categorias")
-    if(dadosSalvos) {
-      setCategorias(JSON.parse(dadosSalvos))
-    }
-
-    const salarioSalvo = localStorage.getItem("salario")
-    if(salarioSalvo) {
-      setSalario(Number(salarioSalvo))
-    }
-  }, [])
+    localStorage.setItem("categorias", JSON.stringify(categorias));
+  }, [categorias]);
 
   useEffect(() => {
-    localStorage.setItem("categorias",JSON.stringify(categorias))
-  }, [categorias])
+    localStorage.setItem("salario", String(salario));
+  }, [salario]);
 
-  useEffect(() =>{
-    localStorage.setItem("salario",String(salario))
-  }, [salario])
+  useEffect(() => {
+    localStorage.setItem("graficoName", JSON.stringify(graficoName));
+  }, [graficoName]);
 
+  
   const limpar = () =>{
     localStorage.clear();
     console.log("hello")
@@ -144,6 +145,12 @@ function toggleMenu() {
         <div className="modal-overlay">
           <div className="modal-content">
             <h2>Cadastro de Categoria</h2>
+            <input
+              placeholder="Nome Gráfico"
+              type="text"
+              value={graficoName}
+              onChange={(e) => setGraficoName(e.target.value)}
+            />
             <input placeholder="Salario" value={salario} onChange={(e) => setSalario(Number(e.target.value))} />
             <input
               placeholder="Nome da Categoria"
@@ -192,7 +199,7 @@ function toggleMenu() {
           )}
       <article className="article-invest">
           <section className="categories-invest">
-            <h2 className="h2-invest">Gráfico em Pizza</h2>
+            <h2 className="h2-invest">{graficoName}</h2>
             <div className="grafico-wrapper">
               <Pie
                   data={data}
@@ -201,7 +208,7 @@ function toggleMenu() {
             </div>
           </section>
             <section className="current-invest">
-            <h2 className="h2-invest">Gráfico em Barras</h2>
+            <h2 className="h2-invest">{graficoName}</h2>
             <div className="grafico-wrapper">
               <Bar
                     data={data}
