@@ -136,7 +136,6 @@ function toggleMenu() {
           <li><Link href={""} onClick={() => setOpenModal(true)}>Redimentos</Link></li>
           <li><Link href="../Porcentagem/Porcentagem">Porcentagem</Link></li>
           <li><Link href={"./dashboard/Dashboard"}>Dashboard</Link></li>
-          <li><Link href={"../savings/savings"}>Savings</Link></li>
           <li><Link href={"../Login-Pagina/Login"}>Sair</Link></li>
         </ul>
     </nav>
