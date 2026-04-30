@@ -2,7 +2,7 @@
 
 Aplicação desenvolvida para controle e visualização de investimentos com **gráficos interativos**.
 
-🔗 **Acesse o projeto online:** [React Invest](https://react-invest-c29x.vercel.app/)
+🔗 **Acesse o projeto online:** [React Invest](https://react-invest.vercel.app/)
 
 ---
 
