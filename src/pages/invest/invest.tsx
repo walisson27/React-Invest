@@ -219,7 +219,7 @@ const Invest = () => {
       <section className="hero-invest-pro">
         <div>
           <span className="eyebrow-invest">Dashboard financeiro</span>
-          <h1>Controle seus gastos, investimentos e saldo em uma visão moderna.</h1>
+          <h1>Controle seus gastos, investimentos e saldo.</h1>
           <p>Cadastre receitas, despesas e aportes para acompanhar evolução, distribuição por categoria e meta de investimento.</p>
         </div>
         <button className="primary-action" onClick={() => setOpenModal(true)}>+ Adicionar lançamento</button>

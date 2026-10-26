@@ -461,7 +461,7 @@ const Dashboard = () => {
       <section className="market-hero market-hero-pro">
         <div>
           <span className="eyebrow-invest">Mercado detalhado</span>
-          <h1>Bolsa e cripto com visão profissional, gráficos e detalhes por ativo.</h1>
+          <h1>Bolsa e cripto, gráficos e detalhes por ativo.</h1>
           <p>Clique em qualquer ativo para abrir um painel com evolução do preço, variação, volume, máxima, mínima e resumo completo.</p>
         </div>
         <div className="market-search-card">
